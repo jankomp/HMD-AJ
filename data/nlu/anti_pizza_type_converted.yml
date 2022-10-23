@@ -1,0 +1,9 @@
+version: "2.0"
+nlu:
+- lookup: anti_pizza_type
+  examples: |
+    - Americana
+    - Calzone
+    - Caprese
+    - Crudo
+    - Chicken BBC

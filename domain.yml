@@ -152,5 +152,10 @@ actions:
 - utter_order_processing_negative
 - utter_order_add
 - utter_default
+
 forms:
-- pizza_order_form
+  pizza_order_form:
+    - pizza_amount
+    - pizza_type
+    - pizza_size
+

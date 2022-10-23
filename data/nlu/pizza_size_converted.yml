@@ -1,0 +1,8 @@
+version: "2.0"
+nlu:
+- lookup: pizza_size
+  examples: |
+    - 10"
+    - 12"
+    - 14"
+    - 18"

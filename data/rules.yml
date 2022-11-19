@@ -1,0 +1,6 @@
+rules:
+- rule: Activate form
+  steps:
+  - intent: item_start_generic
+  - action: pizza_order_form
+  - active_loop: pizza_order_form

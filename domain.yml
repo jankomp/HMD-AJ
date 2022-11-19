@@ -45,25 +45,52 @@ entities:
 
 slots:
   anti_pizza_type:
-    type: unfeaturized
+    type: any
+    mappings:
+      - type: from_entity
+        entity: anti_pizza_type
   client_name:
-    type: text
+    type: any
+    mappings:
+      - type: from_entity
+        entity: client_name
   order_number:
-    type: text
+    type: any
+    mappings:
+      - type: custom
   phone_number:
-    type: text
+    type: any
+    mappings:
+      - type: from_entity
+        entity: phone_number
   pizza_amount:
-    type: unfeaturized
+    type: any
+    mappings:
+      - type: from_entity
+        entity: pizza_amount
   pizza_size:
-    type: unfeaturized
+    type: any
+    mappings:
+      - type: from_entity
+        entity: pizza_size
   pizza_type:
-    type: unfeaturized
+    type: any
+    mappings:
+      - type: from_entity
+        entity: pizza_type
   requested_slot:
-    type: unfeaturized
+    type: any
+    mappings:
+      - type: custom
   toppings:
-    type: unfeaturized
+    type: any
+    mappings:
+      - type: from_entity
+        entity: toppings
   total_order:
-    type: list
+    type: any
+    mappings:
+      - type: custom
 
 responses:
   utter_welcome_greet:
@@ -122,6 +149,9 @@ responses:
       shortly?
   utter_order_processing_negative:
   - text: Sorry, there is a problem with your order
+
+  utter_summarize_order:
+  - text: "Okay Great. Your order is {} {} pizzas in {}. Can you confirm please"
 actions:
 - utter_welcome_greet
 - utter_init_request
@@ -152,9 +182,11 @@ actions:
 - utter_order_processing_negative
 - utter_order_add
 - utter_default
+- utter_summarize_order
 
 forms:
   pizza_order_form:
+    required_slots:
     - pizza_amount
     - pizza_type
     - pizza_size

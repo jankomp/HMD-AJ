@@ -23,9 +23,14 @@ rasa test
 ```
 rasa shell
 ```
+In case it doesn't predict any response please use specifying the model folder:
+```commandline
+rasa shell -m models/
+```
 
 ## Interactive Rasa Tool
-install first [Rasa X](https://rasa.com/docs/rasa-x/) 
+No more available for free users
+Install first [Rasa X](https://rasa.com/docs/rasa-x/)
 ```
 pip install rasa-x --extra-index-url https://pypi.rasa.com/simple
 ```

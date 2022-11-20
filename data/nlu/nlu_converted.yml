@@ -113,23 +113,23 @@ nlu:
     - [one](pizza_amount) [Funghi](pizza_type) [small](pizza_size) pizza
     - [one](pizza_amount) [Margherita](pizza_type) [medium](pizza_size) pizza
     - [1](pizza_amount) [Hawaii](pizza_type) [large](pizza_size) pizza
-    - [one](pizza_amount) [Pepperoni](pizza_type)[medium](pizza_size) pizza
+    - [one](pizza_amount) [Pepperoni](pizza_type) [medium](pizza_size) pizza
     - [3](pizza_amount) [Vegetarian](pizza_type) [small](pizza_size) pizza
     - [one](pizza_amount) [Funghi](pizza_type) pizza [small](pizza_size)
     - [one](pizza_amount) [Margherita](pizza_type) pizza [medium](pizza_size)
     - [1](pizza_amount) [Hawaii](pizza_type) pizza [large](pizza_size)
-    - [one](pizza_amount) [Pepperoni](pizza_type) pizza[medium](pizza_size)
+    - [one](pizza_amount) [Pepperoni](pizza_type) pizza [medium](pizza_size)
     - [3](pizza_amount) [Vegetarian](pizza_type) pizza [small](pizza_size)
     - [Funghi](pizza_type) [small](pizza_size) pizza [three](pizza_amount)
     - [Margherita](pizza_type) [medium](pizza_size) pizza [6](pizza_amount)
     - [Hawaii](pizza_type) [large](pizza_size) pizza [9](pizza_amount)
-    - [Pepperoni](pizza_type)[medium](pizza_size) pizza  [4](pizza_amount)
+    - [Pepperoni](pizza_type) [medium](pizza_size) pizza  [4](pizza_amount)
     - [Vegetarian](pizza_type) [small](pizza_size) pizza [two](pizza_amount)
     - [Funghi](pizza_type) pizza [small](pizza_size)  [three](pizza_amount)
     - [Margherita](pizza_type) pizza [medium](pizza_size)  [6](pizza_amount)
     - [Hawaii](pizza_type) pizza [large](pizza_size)  [9](pizza_amount)
     - [Pepperoni](pizza_type) pizza [medium](pizza_size)   [4](pizza_amount)
-    - [Vegetarian](pizza_type) pizza[small](pizza_size)  [two](pizza_amount)
+    - [Vegetarian](pizza_type) pizza [small](pizza_size)  [two](pizza_amount)
     - [Funghi](pizza_type) pizza
     - [Margherita](pizza_type) pizza
     - [Hawaii](pizza_type) pizza
@@ -196,8 +196,8 @@ nlu:
   examples: |
     - my name is [Raymond](client_name) and number is [098765432](phone_number).
     - [Raymond](client_name) and [098765432](phone_number)
-    - [Raymond](client_name)[098765432](phone_number)
-    - [Raymond](client_name) and my number is  [098765432](phone_number)
+    - [Raymond](client_name) [098765432](phone_number)
+    - [Raymond](client_name) and my number is [098765432](phone_number)
 - intent: order_take_home
   examples: |
     - take away
@@ -241,16 +241,16 @@ nlu:
   examples: |
     - [small](pizza_size)
     - [large](pizza_size)
-    - I want to order large pizza
-    - I want a large pizza
+    - I want to order [large](pizza_size) pizza
+    - I want a [large](pizza_size) pizza
     - I think its largee
-    - medim pizza
+    - [medium](pizza_size) pizza
     - huge pizza
     - Little pizza
     - Probably avg
-    - small
-    - large
-    - midum
+    - [small](pizza_size)
+    - [large](pizza_size)
+    - [medium](pizza_size)
 - intent: item_topping
   examples: |
     - I want to order pizza with OLIVES
@@ -275,6 +275,17 @@ nlu:
   examples: |
     - do you have [hawaii](pizza_type)
     - do you offer pizza [margherita](pizza_type)
+- intent: out_of_scope
+  examples: |
+    - What is 2 + 2?
+    - Who's the US President?
+    - do you have shoes
+    - what is your name
+    - are you real
+    - do you have a sister
+    - book a flight from milan to ny
+    - how far is the square
+    - give me the directions to time square
 - synonym: Americana
   examples: |
     - Americana

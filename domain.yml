@@ -2,6 +2,8 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 
+version: "3.1"
+
 intents:
 - welcome_greet
 - init_request
@@ -93,6 +95,8 @@ slots:
       - type: custom
 
 responses:
+  utter_out_of_scope:
+    - text: Sorry, I can't handle that request.
   utter_welcome_greet:
   - text: Hello There! Welcome to Pizzbot. How can I help you?
   utter_init_request:

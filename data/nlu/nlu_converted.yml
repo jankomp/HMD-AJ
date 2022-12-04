@@ -14,7 +14,7 @@ nlu:
     - hi
     - Hi there
     - greetings
-    - long time no see
+    - long time no see 
     - hello
 - intent: init_request
   examples: |
@@ -23,13 +23,13 @@ nlu:
     - I want to order large pizza with olives
     - I want large tomatoes pizza
     - I want a medium cheese pizza
-    - want to oder pizza
-    - want to oder large chezze pizza
-    - want to order medium tamatas pizza
-    - want to order least carn pizza
-    - wont large peper pizzaa
+    - want to order pizza
+    - want to oder large cheese pizza
+    - want to order medium tomatoes pizza
+    - want to order least carnivore pizza
+    - need large pepperoni pizza
     - want medium onions pizza
-    - want large peper pizzaa
+    - want large pepper pizza
     - pizza
     - pizza please
     - Pizza please
@@ -44,7 +44,7 @@ nlu:
     - cheese and SMALL
     - medium and Olives
     - peperoni, large
-    - mall pizza with tomatoes topping
+    - small pizza with tomatoes topping
     - medium with onion
     - large corns
 - intent: init_pizza_question
@@ -143,7 +143,7 @@ nlu:
     - [hawaii](pizza_type) pizza small
     - [hawaii](pizza_type) pizza small please
     - small [hawaii](pizza_type) pizza
-    - [two](pizza_amount) [medium](pizza_size) pizza [marherita](pizza_type) please
+    - [two](pizza_amount) [medium](pizza_size) pizza [margherita](pizza_type) please
     - [jumbo](pizza_type)
     - [two](pizza_amount)
     - [2](pizza_amount)
@@ -210,16 +210,16 @@ nlu:
     - i prefer delivery
 - intent: order_delivery_address
   examples: |
-    - my address is #46, 655 avenue du technopole
-    - #46, 655 avenue du technopole
+    - my address is #46, 655 avenue du techno pole
+    - #46, 655 avenue du techno pole
     - house number 46 street 655 avenue du technopole
-    - house num 46  655 avenue du technopole street
-    - Hs No 46  655 avenue du technopole street
-    - Hs No. 46  655 avenue du technopole street
-    - my address is house number 46 street 655 avenue du technopole
-    - my address is house num 46  655 avenue du technopole street
-    - my address is Hs No 46  655 avenue du technopole street
-    - my address is Hs No. 46  655 avenue du technopole street
+    - house num 46  655 avenue du techno pole street
+    - House No 46  655 avenue du techno pole street
+    - House No. 46  655 avenue du techno pole street
+    - my address is house number 46 street 655 avenue du techno pole
+    - my address is house num 46  655 avenue du techno pole street
+    - my address is No 46  655 avenue du techno pole street
+    - my address is No. 46  655 avenue du techno pole street
 - intent: item_change_request_without_entity
   examples: |
     - Actually i want to modify pizza type.
@@ -243,7 +243,7 @@ nlu:
     - [large](pizza_size)
     - I want to order [large](pizza_size) pizza
     - I want a [large](pizza_size) pizza
-    - I think its largee
+    - I think its large
     - [medium](pizza_size) pizza
     - huge pizza
     - Little pizza
@@ -254,17 +254,17 @@ nlu:
 - intent: item_topping
   examples: |
     - I want to order pizza with OLIVES
-    - My favourite topping is cheze
+    - My favourite topping is cheese
     - I like olive
     - Pepperoni is my favorite topping
     - Definitely onnion
-    - I love tomotos
+    - I love tomatoes
     - favorite topping is Corns
-    - I love cheeze
-    - chesse
-    - Oliv
-    - Peperroni
-    - tomotoes
+    - I love cheese
+    - cheese
+    - Olive
+    - pepperoni
+    - tomatoes
     - Onions
     - Corn
 - intent: item_amount
@@ -348,5 +348,5 @@ nlu:
 - synonym: Vegetarian
   examples: |
     - Vegetarian
-    - Vegetaria
+    - Vegetarian
     - Vegetable

@@ -160,6 +160,7 @@ responses:
     - text: Is there anything else I can do for you?
 
 actions:
+- validate_pizza_order_form
 - utter_anything_else
 - utter_inform_restaurant_location
 - utter_explain_pizza_quantities

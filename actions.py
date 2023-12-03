@@ -11,6 +11,12 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
+from typing import Text, List, Any, Dict
+
+from rasa_sdk import Tracker, FormValidationAction
+from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.types import DomainDict
+
 
 
 class ActionChangeOrder(Action):
@@ -69,3 +75,41 @@ class ActionGetRestaurantLocation(Action):
 		restaurant_address = "Via Giuseppe Verdi, 15, 38122 Trento TN"
 
 		return[SlotSet("restaurant_location", restaurant_address)]
+
+
+# for a generic slot validation please refer to https://rasa.com/docs/action-server/validation-action/
+class ValidatePizzaOrderForm(FormValidationAction):
+
+	def name(self) -> Text:
+		# https://rasa.com/docs/rasa/forms/#advanced-usage
+		return "validate_pizza_order_form"
+
+	@staticmethod
+	def pizza_db() -> List[Text]:
+		"""Database of supported cuisines"""
+
+		return ["hawaii", "funghi", "french"]
+
+	def validate_pizza_type(
+		self,
+		slot_value: Any,
+		dispatcher: CollectingDispatcher,
+		tracker: Tracker,
+		domain: DomainDict,
+	) -> Dict[Text, Any]:
+		"""Validate cuisine value."""
+
+		if isinstance(slot_value, str):
+			if slot_value.lower() in self.pizza_db():
+				# validation succeeded, set the value of the "cuisine" slot to value
+				return {"pizza_type": slot_value}
+			else:
+				return {"pizza_type": "Special " + slot_value.title() }
+		elif isinstance(slot_value, list):
+			if len(slot_value) > 0:
+				concatenated_slot = ", ".join(slot_value)
+				return {"pizza_type": concatenated_slot}
+			else:
+				# validation failed, set this slot to None so that the
+				# user will be asked for the slot again
+				return {"pizza_type": None}

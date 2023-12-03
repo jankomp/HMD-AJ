@@ -16,101 +16,226 @@ stories:
   - intent: init_pizza_question
   - action: utter_init_pizza_question
   - checkpoint: start_order
-- story: order pizza vague
+
+- story: pizza interjection
   steps:
-  - checkpoint: start_order
-  - intent: init_request
-  - action: utter_init_request
   - intent: item_start_generic
   - action: pizza_order_form
   - active_loop: pizza_order_form
-  - checkpoint: confirm_order
-- story: order pizza vague
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: explain
+  - action: utter_explain_pizza_quantities
+  - action: pizza_order_form
+
+
+- story: pizza interjection
   steps:
-  - checkpoint: start_order
-  - intent: init_request
-  - action: utter_init_request
   - intent: item_start_generic
   - action: pizza_order_form
   - active_loop: pizza_order_form
-  - checkpoint: confirm_order_pre_question
-- story: order pizza precise
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: explain
+  - action: utter_explain_pizza_quantities
+  - action: pizza_order_form
+
+- story: pizza interjection
   steps:
-  - checkpoint: start_order
-  - checkpoint: new_order
   - intent: item_start_generic
   - action: pizza_order_form
   - active_loop: pizza_order_form
-  - checkpoint: confirm_order
-- story: order pizza precise
+  - slot_was_set:
+    - requested_slot: pizza_type
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: explain
+  - action: utter_explain_pizza_quantities
+  - action: pizza_order_form
+
+- story: pizza interjection
   steps:
-  - checkpoint: start_order
-  - checkpoint: new_order
   - intent: item_start_generic
   - action: pizza_order_form
   - active_loop: pizza_order_form
-  - checkpoint: confirm_order_pre_question
-- story: story_to_modify_order
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: explain
+  - action: utter_explain_pizza_quantities
+  - action: pizza_order_form
+
+
+- story: interactive_story_08
   steps:
-  - checkpoint: confirm_order
-  - intent: response_negative
-  - action: action_change_order
-  - action: utter_item_change
-  - checkpoint: confirm_order
-- story: story_to_modify_order_2
-  steps:
-  - checkpoint: confirm_order
-  - intent: item_change
-  - action: action_change_order
-  - action: utter_item_change
-  - checkpoint: confirm_order
-- story: story_to_modify_order_3
-  steps:
-  - checkpoint: confirm_order
-  - intent: response_negative
-  - action: utter_order_confirm_negative
-  - intent: item_change
-  - action: action_change_order
-  - action: utter_item_change
-  - checkpoint: confirm_order
-- story: story_to_proceed_furthur
-  steps:
-  - checkpoint: confirm_order
-  - intent: response_positive
+  - intent: item_start_generic
+    entities:
+    - pizza_size: large
+    - pizza_type: margherita
+  - slot_was_set:
+    - pizza_size: large
+  - slot_was_set:
+    - pizza_type: margherita
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size: large
+  - slot_was_set:
+    - pizza_type: margherita
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: welcome_greet
+  - intent: explain
+  - action: utter_explain_pizza_quantities
   - action: action_pizza_order_add
-  - action: utter_extra_order
-  - checkpoint: confirmed_order_proceed
-- story: story_to_add_new_order
+  - action: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: welcome_greet
+    entities:
+    - pizza_amount: three
+  - slot_was_set:
+    - pizza_amount: three
+  - intent: item_amount
+    entities:
+    - pizza_amount: three
+  - action: utter_item_change
+
+- story: interactive_story_09
   steps:
-  - checkpoint: confirmed_order_proceed
+  - intent: item_start_generic
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: explain
+  - action: utter_explain_pizza_quantities
+  - action: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: item_amount
+    entities:
+    - pizza_amount: '1'
+  - slot_was_set:
+    - pizza_amount: '1'
+  - action: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_type
+  - intent: item_topping
+    entities:
+    - pizza_type: onions
+    - pizza_type: tuna
+  - action: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - intent: item_size
+    entities:
+    - pizza_size: large
+  - action: utter_item_change
   - intent: response_positive
-  - action: action_reset_pizza_form
-  - action: utter_order_add
-  - checkpoint: new_order
-- story: story_to_proceed_with_confirm_order
-  steps:
-  - checkpoint: confirmed_order_proceed
-  - intent: response_negative
-  - action: utter_name_phone
-  - intent: response_name_phone
-  - action: action_order_number
   - action: utter_total_order_final
-  - checkpoint: order_proceed
-- story: order take home
+
+- story: interactive_story_10
   steps:
-  - checkpoint: order_proceed
-  - intent: order_take_home
-  - action: utter_order_complete
-- story: order delivery
+  - intent: item_size
+    entities:
+    - pizza_size: large
+  - slot_was_set:
+    - pizza_size: large
+  - intent: item_start_generic
+    entities:
+    - pizza_size: large
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size: large
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: explain
+  - action: utter_explain_pizza_quantities
+  - action: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: item_amount
+    entities:
+    - pizza_amount: three
+  - slot_was_set:
+    - pizza_amount: three
+  - action: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_type
+
+- story: interactive_story_11
   steps:
-  - checkpoint: order_proceed
-  - intent: order_delivery
-  - action: utter_delivery_address
-  - intent: order_delivery_address
-  - action: utter_order_complete
-- story: story_modify_prerequest
+  - intent: item_start_generic
+    entities:
+    - pizza_type: margherita
+  - slot_was_set:
+    - pizza_type: margherita
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_type: margherita
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: explain
+  - action: utter_explain_pizza_quantities
+  - action: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: item_amount
+    entities:
+    - pizza_amount: three
+  - slot_was_set:
+    - pizza_amount: three
+  - action: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - intent: item_size
+    entities:
+    - pizza_size: large
+  - slot_was_set:
+    - pizza_size: large
+  - action: pizza_order_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_item_change
+
+- story: interactive_story_12
   steps:
-  - checkpoint: confirm_order_pre_question
-  - intent: item_change_request_without_entity
-  - action: utter_item_type
-  - checkpoint: confirm_order
+  - intent: item_start_generic
+    entities:
+    - pizza_type: margherita
+  - slot_was_set:
+    - pizza_type: margherita
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_type: margherita
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: explain
+  - action: utter_explain_pizza_quantities
+  - action: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: item_amount
+    entities:
+    - pizza_amount: three
+  - slot_was_set:
+    - pizza_amount: three
+  - action: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - intent: item_size
+    entities:
+    - pizza_size: large
+  - slot_was_set:
+    - pizza_size: large
+  - action: pizza_order_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_item_change

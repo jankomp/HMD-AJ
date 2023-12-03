@@ -60,9 +60,12 @@ class ActionOrderNumber(Action):
 		return[SlotSet("order_number", order_number)]
 
 
-class ActionPizzaQuestions(Action):
+class ActionGetRestaurantLocation(Action):
 	def name(self):
-		return 'action_pizza_questions'
+		return 'action_get_restaurant_location'
 
 	def run(self, dispatcher, tracker, domain):
-		return[]
+
+		restaurant_address = "Via Giuseppe Verdi, 15, 38122 Trento TN"
+
+		return[SlotSet("restaurant_location", restaurant_address)]

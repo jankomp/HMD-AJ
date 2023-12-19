@@ -21,10 +21,10 @@ rules:
   - intent: out_of_scope
   - action: utter_out_of_scope
 
-#- rule: start
-#  steps:
-#    - intent: init_request
-#    - action: utter_init_request
+- rule: start
+  steps:
+    - intent: welcome_greet
+    - action: utter_welcome_greet
 #
 #
 #- rule: where are you?

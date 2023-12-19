@@ -8,3 +8,8 @@ stories:
   - action: utter_intro
   - action: utter_possible_questions
   - intent: init_interview_question
+
+- story: greet_user
+  steps:
+  - intent: welcome_greet
+  - action: utter_welcome_greet

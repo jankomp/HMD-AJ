@@ -16,6 +16,20 @@ nlu:
     - greetings
     - long time no see
     - hello
+    - hello there
+- intent: company_name
+  examples: |
+    - I am from [Facebook](company_name)
+    - [Google](company_name)
+    - [XYZ](company_name) is my company
+    - [Tech Solutions](company_name) is my company name
+    - [Tech Consultancy Inc.](company_name) is my company's name
+    - [Rasa](company_name) is my company's name
+    - I work at [Meta](company_name)
+    - I am a recruiter working for [Microsoft](company_name)
+    - i'm from [Meta](company_name)
+    - [Microsoft](company_name)
+    - i am from [X](company_name)
 - intent: init_interview_question
   examples: |
     - What can you tell me about yourself?

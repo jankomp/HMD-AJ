@@ -3,11 +3,12 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- company_name
 - init_interview_question
 - welcome_greet
 entities:
-- interviewer_name
 - company_name
+- interviewer_name
 - company_domain
 - interviewer_email
 slots:
@@ -44,8 +45,11 @@ responses:
   - text: I will gladly tell you about Jan! He is a software developer from Italy, currently completing his Master's with the EIT Digital Programme in Human-Computer Interaction and Design in the Universities Aalto in Finland and Università di Trento in Italy.
   utter_possible_questions:
   - text: I can tell you about his skills, education, professional experience and goals. What would you like to know?
+  utter_company_confirmation:
+  - text: Great! Let's see if Jan is a fit for {company_name}.
 actions:
 - utter_welcome_greet
+- utter_company_confirmation
 - utter_possible_questions
 - utter_intro
 - utter_out_of_scope

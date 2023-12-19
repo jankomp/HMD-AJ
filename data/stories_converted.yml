@@ -1,5 +1,21 @@
 version: "3.1"
 stories:
+
+- story: greet_user
+  steps:
+  - intent: welcome_greet
+  - action: utter_welcome_greet
+
+- story: affirm_company_name
+  steps:
+  - intent: company_name
+    entities:
+    - company_name: Huawei
+  - action: action_extract_slots
+  - slot_was_set:
+    - company_name: Huawei
+  - action: utter_company_confirmation
+
 - story: interactive_story_1
   steps:
   - intent: welcome_greet
@@ -9,7 +25,28 @@ stories:
   - action: utter_possible_questions
   - intent: init_interview_question
 
-- story: greet_user
+
+- story: interactive_story_2
   steps:
   - intent: welcome_greet
   - action: utter_welcome_greet
+  - intent: company_name
+    entities:
+    - company_name: Microsoft
+  - action: action_extract_slots
+  - slot_was_set:
+    - company_name: Microsoft
+  - action: utter_company_confirmation
+
+- story: interactive_story_1
+  steps:
+  - intent: welcome_greet
+  - action: utter_welcome_greet
+  - intent: company_name
+  - intent: company_name
+    entities:
+    - company_name: X
+  - action: action_extract_slots
+  - slot_was_set:
+    - company_name: X
+  - action: utter_company_confirmation

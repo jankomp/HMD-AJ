@@ -1,0 +1,104 @@
+version: "3.1"
+nlu:
+- lookup: skills_programming_language
+  examples: |
+    - Python
+    - TypeScript
+    - JavaScript
+    - C++
+    - C
+    - Go
+    - Rust
+    - C#
+    - Shell
+    - Java
+    - HTML
+    - Lua
+    - Jupyter Notebook
+    - PHP
+    - Ruby
+    - Kotlin
+    - Swift
+    - CSS
+    - Dart
+    - Emacs Lisp
+    - PowerShell
+    - Vim Script
+    - SCSS
+    - Vue
+    - Makefile
+    - Haskell
+    - Svelte
+    - Perl
+    - Batchfile
+    - Dockerfile
+    - Nix
+    - Clojure
+    - Scala
+    - GDScript
+    - Elixir
+    - Assembly
+    - TeX
+    - Objective-C
+    - Solidity
+    - Common Lisp
+    - R
+    - Nim
+    - Zig
+    - HCL
+    - Markdown
+    - OpenSCAD
+    - MDX
+    - AutoHotkey
+    - Logos
+    - Adblock Filter List
+    - Julia
+    - Jinja
+    - Pascal
+    - Tcl
+    - OCaml
+    - Crystal
+    - Scheme
+    - CMake
+    - F#
+    - Verilog
+    - HLSL
+    - Visual Basic .NET
+    - jq
+    - Roff
+    - Ren'Py
+    - ASL
+    - GLSL
+    - Smarty
+    - Vala
+    - Rich Text Format
+    - ActionScript
+    - QML
+    - DTrace
+    - D
+    - Wikitext
+    - AutoIt
+    - PLpgSQL
+    - G-code
+    - VHDL
+    - Bikeshed
+    - ShaderLab
+    - Fortran
+    - MATLAB
+    - Puppet
+    - VBA
+    - Astro
+    - Starlark
+    - Blade
+    - WebAssembly
+    - Elm
+    - Handlebars
+    - Racket
+    - Mustache
+    - Haxe
+    - Groovy
+    - Objective-C++
+    - V
+    - Nunjucks
+    - GAP
+    - Fennel

@@ -20,24 +20,24 @@ nlu:
     - höi
 - intent: company_name
   examples: |
-    - I am from [Facebook](ORG)
-    - [Google](ORG)
-    - [XYZ](ORG) is my company
-    - [Tech Solutions](ORG) is my company name
-    - [Tech Consultancy Inc](ORG) is my company's name
-    - [Rasa](ORG) is my company's name
-    - [Nike](ORG) is where I work
-    - I work at [Meta](ORG)
-    - I am a recruiter working for [Microsoft](ORG)
-    - i'm from [Meta](ORG)
-    - [Microsoft](ORG)
-    - i am from [X](ORG)
-    - [X](ORG)
-    - I am working for the hiring firm HireStars and we are searching candidates for [Eos Solutions](ORG)
-    - i'm from [Twitter](ORG)
-    - [GM](ORG)
-    - my company is [Wuerth Phoenix](ORG)
-    - i am from [Apple](ORG)
+    - I am from Facebook
+    - Google
+    - XYZ is my company
+    - Tech Solutions is my company name
+    - Tech Consultancy Inc is my company's name
+    - Rasa is my company's name
+    - Nike is where I work
+    - I work at Meta
+    - I am a recruiter working for Microsoft
+    - i'm from Meta
+    - Microsoft
+    - i am from X
+    - X
+    - I am working for the hiring firm HireStars and we are searching candidates for Eos Solutions
+    - i'm from Twitter
+    - GM
+    - my company is Wuerth Phoenix
+    - i am from Apple
 - intent: init_interview_question
   examples: |
     - What can you tell me about yourself?

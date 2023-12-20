@@ -16,3 +16,18 @@ stories:
   - slot_was_set:
     - ORG: Apple
   - action: utter_company_confirmation
+
+- story: interactive_story_1
+  steps:
+  - intent: welcome_greet
+  - action: utter_welcome_greet
+  - action: utter_company_qst
+  - intent: company_name
+    entities:
+    - ORG: Microsoft
+  - slot_was_set:
+    - ORG: Microsoft
+  - action: utter_company_confirmation
+  - intent: company_name
+  - intent: init_interview_question
+  - action: utter_intro

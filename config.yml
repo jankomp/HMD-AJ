@@ -3,6 +3,11 @@ recipe: default.v1
 language: en
 
 pipeline:
+- name: SpacyNLP
+  model: en_core_web_md
+- name: SpacyEntityExtractor
+  dimensions: ["ORG"]
+- name: EntitySynonymMapper
 - name: WhitespaceTokenizer
 - name: CountVectorsFeaturizer
 - name: CountVectorsFeaturizer
@@ -10,7 +15,8 @@ pipeline:
   min_ngram: 1
   max_ngram: 4
 - name: LogisticRegressionClassifier
-- name: CRFEntityExtractor
+- name: DIETClassifier
+  epochs: 2
 - name: ResponseSelector
   epochs: 2
 

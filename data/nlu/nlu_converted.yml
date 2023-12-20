@@ -17,19 +17,27 @@ nlu:
     - long time no see
     - hello
     - hello there
+    - höi
 - intent: company_name
   examples: |
-    - I am from [Facebook](company_name)
-    - [Google](company_name)
-    - [XYZ](company_name) is my company
-    - [Tech Solutions](company_name) is my company name
-    - [Tech Consultancy Inc.](company_name) is my company's name
-    - [Rasa](company_name) is my company's name
-    - I work at [Meta](company_name)
-    - I am a recruiter working for [Microsoft](company_name)
-    - i'm from [Meta](company_name)
-    - [Microsoft](company_name)
-    - i am from [X](company_name)
+    - I am from [Facebook](ORG)
+    - [Google](ORG)
+    - [XYZ](ORG) is my company
+    - [Tech Solutions](ORG) is my company name
+    - [Tech Consultancy Inc](ORG) is my company's name
+    - [Rasa](ORG) is my company's name
+    - [Nike](ORG) is where I work
+    - I work at [Meta](ORG)
+    - I am a recruiter working for [Microsoft](ORG)
+    - i'm from [Meta](ORG)
+    - [Microsoft](ORG)
+    - i am from [X](ORG)
+    - [X](ORG)
+    - I am working for the hiring firm HireStars and we are searching candidates for [Eos Solutions](ORG)
+    - i'm from [Twitter](ORG)
+    - [GM](ORG)
+    - my company is [Wuerth Phoenix](ORG)
+    - i am from [Apple](ORG)
 - intent: init_interview_question
   examples: |
     - What can you tell me about yourself?
@@ -37,6 +45,11 @@ nlu:
     - What can you tell me about Jan?
     - Tell me about Jan
     - What is he like?
+    - can you tell me more about Jan?
+    - what can he do?
 - synonym: Programer
   examples: |
     - Programmer
+- synonym: ORG
+  examples: |
+    - ORG

@@ -7,28 +7,33 @@ intents:
 - init_interview_question
 - welcome_greet
 entities:
-- company_name
+- ORG
 - interviewer_name
 - company_domain
 - interviewer_email
+- jan_email
+- jan_skills
+- jan_skills_programming_language
+- jan_specific_skill
 slots:
   interviewer_name:
     type: any
     mappings:
     - type: from_entity
       entity: interviewer_name
-  company_name:
-    type: any
+  ORG:
+    type: text
+    initial_value: unknown
     mappings:
     - type: from_entity
-      entity: company_name
+      entity: ORG
   requested_slot:
     type: categorical
     values:
-    - interviewer_name
-    - interviewer_email
-    - company_name
-    - company_domain
+    - jan_email
+    - jan_skills
+    - jan_skills_programming_language
+    - jan_specific_skill
     mappings:
     - type: custom
     influence_conversation: true
@@ -40,26 +45,30 @@ responses:
   utter_ambiguous_input:
   - text: I must ask you to limit yourself to one topic per message to ensure smooth interaction.
   utter_welcome_greet:
-  - text: Hello There! I am Artificial Jan (AJ). What company are you from?
+  - text: Hello There! I am Artificial Jan (AJ). The chatbot that will help you get to know Jan better.
+  utter_company_qst:
+  - text: What company are you from?
   utter_intro:
   - text: I will gladly tell you about Jan! He is a software developer from Italy, currently completing his Master's with the EIT Digital Programme in Human-Computer Interaction and Design in the Universities Aalto in Finland and Università di Trento in Italy.
   utter_possible_questions:
   - text: I can tell you about his skills, education, professional experience and goals. What would you like to know?
   utter_company_confirmation:
-  - text: Great! Let's see if Jan is a fit for {company_name}.
+  - text: Great! Let's see if Jan is a fit for {ORG}.
 actions:
-- utter_welcome_greet
+- utter_company_qst
 - utter_company_confirmation
-- utter_possible_questions
+- utter_welcome_greet
 - utter_intro
+- utter_possible_questions
 - utter_out_of_scope
 - utter_ambiguous_input
 - utter_default
 - validate_interviewer_name
+- action_get_skill_programming_language
 forms:
   interviewer_company_form:
     required_slots:
     - interviewer_name
     - interviewer_email
-    - company_name
+    - ORG
     - company_domain

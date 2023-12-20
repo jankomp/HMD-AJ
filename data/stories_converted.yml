@@ -5,48 +5,14 @@ stories:
   steps:
   - intent: welcome_greet
   - action: utter_welcome_greet
+  - action: utter_company_qst
 
 - story: affirm_company_name
   steps:
+  - action: utter_company_qst
   - intent: company_name
     entities:
-    - company_name: Huawei
-  - action: action_extract_slots
+    - ORG: Apple
   - slot_was_set:
-    - company_name: Huawei
-  - action: utter_company_confirmation
-
-- story: interactive_story_1
-  steps:
-  - intent: welcome_greet
-  - action: utter_welcome_greet
-  - intent: init_interview_question
-  - action: utter_intro
-  - action: utter_possible_questions
-  - intent: init_interview_question
-
-
-- story: interactive_story_2
-  steps:
-  - intent: welcome_greet
-  - action: utter_welcome_greet
-  - intent: company_name
-    entities:
-    - company_name: Microsoft
-  - action: action_extract_slots
-  - slot_was_set:
-    - company_name: Microsoft
-  - action: utter_company_confirmation
-
-- story: interactive_story_1
-  steps:
-  - intent: welcome_greet
-  - action: utter_welcome_greet
-  - intent: company_name
-  - intent: company_name
-    entities:
-    - company_name: X
-  - action: action_extract_slots
-  - slot_was_set:
-    - company_name: X
+    - ORG: Apple
   - action: utter_company_confirmation

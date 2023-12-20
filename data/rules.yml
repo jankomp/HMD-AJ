@@ -1,11 +1,11 @@
 version: "3.1"
 
 rules:
-- rule: Activate form
-  steps:
-  - intent: interview_start_generic
-  - action: interviewer_company_form
-  - active_loop: interviewer_company_form
+#- rule: Activate form
+#  steps:
+#  - intent: interview_start_generic
+#  - action: interviewer_company_form
+#  - active_loop: interviewer_company_form
 
 
 #- rule: submit form
@@ -25,11 +25,17 @@ rules:
   steps:
     - intent: welcome_greet
     - action: utter_welcome_greet
-#
-#
-#- rule: where are you?
-#  steps:
-#    - intent: request_restaurant_location
-#    - action: action_get_restaurant_location
-#    - action: utter_inform_restaurant_location
-#    - action: utter_anything_else
+    - action: utter_company_qst
+
+- rule: start_interview
+  steps:
+    - intent: interview_start_generic
+    #- action: interviewer_company_form
+    #- active_loop: interviewer_company_form
+    - action: utter_intro
+
+- rule: company_name
+  steps:
+    - intent: company_name
+    - action: utter_company_confirmation
+

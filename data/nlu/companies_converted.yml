@@ -1,0 +1,52 @@
+version: "3.1"
+nlu:
+- lookup: ORG
+  examples: |
+    - Microsoft
+    - Google
+    - IBM
+    - Oracle
+    - SAP
+    - PayPal
+    - Salesforce
+    - Kyndryl
+    - Block, Inc.
+    - Fiserv
+    - ADP
+    - Adobe
+    - VMware
+    - Global Payments Inc
+    - Intuit
+    - SS&C Technologies
+    - Dassault Systèmes
+    - NetApp
+    - Roper Technologies
+    - ServiceNow
+    - Workday
+    - Broadridge Financial Solutions
+    - Palo Alto Networks
+    - Paychex
+    - NortonLifeLock
+    - Amdocs
+    - Autodesk
+    - Synopsys
+    - Akamai Technologies
+    - Citrix Systems
+    - Zoom Video Communications
+    - Fleetcor
+    - Cadence Design Systems
+    - EPAM Systems
+    - Fortinet
+    - Splunk
+    - CoStar Group
+    - Datadog
+    - Ansys
+    - Twilio
+    - Veeva Systems
+    - DocuSign
+    - Paycom
+    - Crowdstrike
+    - Hubspot
+    - RingCentral
+    - Snowflake Inc.
+    - Palantir Technologies

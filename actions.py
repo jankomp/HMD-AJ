@@ -41,10 +41,15 @@ class ActionGetSkillProgrammingLanguage(Action):
 		return programming_languages_dictionary
 
 	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-		skill = tracker.get_slot("skill")
-		SlotSet("skill", skill)
+		skill = tracker.get_slot("skill_programming_language")
+		SlotSet("skill_programming_language", skill)
 		programming_languages_dictionary = self.skill_db()
-		if skill.lower() in programming_languages_dictionary.keys:
+		if skill is None:
+			all_skills = ', '.join(programming_languages_dictionary.keys())
+			return [SlotSet("skill_programming_languages", all_skills)]
+
+		skill = skill.lower()  # Convert to lowercase after checking if it's None
+		if skill in programming_languages_dictionary.keys():
 			skill_level = programming_languages_dictionary[skill]
 		else:
 			skill_level = "no experience yet"

@@ -63,9 +63,74 @@ nlu:
     - what are the possibilitites?
     - tell me what you know about.
     - what info can I get from you?
-- synonym: Programer
+    - What kind of questions can I ask about Jan?
+    - What information do you have about Jan?
+    - What can you tell me about Jan?
+    - What topics can we discuss about Jan?
+    - What aspects of Jan's profile can you provide information on?
+    - What can I inquire about Jan?
+    - What details can you share about Jan?
+    - What can you answer about Jan?
+    - What can I learn about Jan from you?
+    - What questions about Jan can you respond to?
+- intent: out_of_scope
   examples: |
-    - Programmer
+    - I am asking you an out of scope question
+    - 4 + 2 = ?
+    - After registration I see that I have an available balance of 0.00000000. What does this balance represent?
+    - Are you ready?
+    - But you're an english site :(
+    - Can I ask you questions first?
+    - Can I die
+    - Can I get a hamburger?
+    - Can YouTube talk?
+    - Can you call me back ?
+    - Can you give me your datacenter's password
+    - Can you make sandwiches?
+    - Can you please send me an uber
+    - Do I have to accept?
+- intent: jan_skills_generic
+  examples: |
+    - what are Jan's skills?
+    - what programming languages does Jan know?
+    - can you tell me about his skills?
+    - What skills does Jan have?
+    - Can you tell me about Jan's expertise?
+    - What areas is Jan proficient in?
+    - In which fields does Jan have experience?
+    - What are Jan's strengths?
+    - Can you list Jan's abilities?
+    - What kind of skills does Jan possess?
+    - What is Jan's skill set?
+    - What are Jan's professional skills?
+    - What competencies does Jan have?
+- intent: jan_programming_language
+  examples: |
+    - does he know [Python](skill_programming_language)?
+    - is he proficient in [Rust](skill_programming_language)?
+    - [Ruby](skill_programming_language)
+    - Does Jan know [Python](skill_programming_language)?
+    - Is Jan proficient in [Java](skill_programming_language)?
+    - Can Jan code in [JavaScript](skill_programming_language)?
+    - Has Jan experience with [C++](skill_programming_language)?
+    - Is [Ruby](skill_programming_language) one of Jan's skills?
+    - Can Jan work with [Swift](skill_programming_language)?
+    - Is Jan familiar with [PHP](skill_programming_language)?
+    - Does Jan use [TypeScript](skill_programming_language)?
+    - Has Jan worked with [Go](skill_programming_language)?
+    - Is [Kotlin](skill_programming_language) a language Jan knows?
+    - how about [C#](skill_programming_language)?
+    - Has Jan experience with [C](skill_programming_language)?
+- synonym: Jan
+  examples: |
+    - Jan
+    - he
+    - him
+    - your master
+    - your creator
+    - the candidate
+    - Mr. Kompatscher
+    - Jan Kompatscher
 - synonym: ORG
   examples: |
     - ORG

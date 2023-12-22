@@ -1,20 +1,5 @@
 version: "3.1"
-
 rules:
-#- rule: Activate form
-#  steps:
-#  - intent: interview_start_generic
-#  - action: interviewer_company_form
-#  - active_loop: interviewer_company_form
-
-
-#- rule: submit form
-#  condition:
-#    - active_loop: pizza_order_form
-#  steps:
-#      - action: pizza_order_form      # run the form
-#      - active_loop: null
-#      - action: utter_item_change
 
 - rule: out-of-scope
   steps:
@@ -30,9 +15,10 @@ rules:
 - rule: start_interview
   steps:
     - intent: interview_start_generic
-    #- action: interviewer_company_form
-    #- active_loop: interviewer_company_form
     - action: utter_intro
+    - action: utter_possible_questions
+    - action: jan_form
+    - active_loop: jan_form
 
 - rule: company_name
   steps:
@@ -43,3 +29,17 @@ rules:
   steps:
     - intent: possible_questions_qst
     - action: utter_possible_questions
+
+- rule: submit form
+#  condition:
+#    - active_loop: interviewer_company_form_form
+#  steps:
+#      - action: interviewer_company_form      # run the form
+#      - active_loop: null
+#      - action: utter_interview_complete
+  condition:
+    - active_loop: jan_form
+  steps:
+    - action: jan_form
+    - active_loop: null
+    - action: utter_interview_complete

@@ -1,6 +1,6 @@
 version: "3.1"
 nlu:
-- lookup: skills_programming_language
+- lookup: skill_programming_language
   examples: |
     - Python
     - TypeScript

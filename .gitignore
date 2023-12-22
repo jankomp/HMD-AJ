@@ -2,3 +2,4 @@
 models/*
 results/*
 story_graph.dot
+__pycache__/*

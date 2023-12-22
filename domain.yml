@@ -7,6 +7,9 @@ intents:
 - init_interview_question
 - possible_questions_qst
 - welcome_greet
+- out_of_scope
+- jan_skills_generic
+- jan_programing_language
 entities:
 - ORG
 - interviewer_name
@@ -14,7 +17,7 @@ entities:
 - interviewer_email
 - jan_email
 - jan_skills
-- jan_skills_programming_language
+- jan_skill_programming_languages
 - jan_specific_skill
 - jan_education
 - jan_exp
@@ -27,10 +30,31 @@ slots:
       entity: interviewer_name
   ORG:
     type: text
-    initial_value: unknown
+    initial_value: not sure
     mappings:
     - type: from_entity
       entity: ORG
+  skill_programming_languages:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: skill_programming_languages
+  skill_programming_language:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: skill_programming_language
+  skill_level:
+    type: categorical
+    values:
+    - no experience yet
+    - basic
+    - good
+    - very good
+    - extraordinary
+    mappings:
+    - type: custom
+      influence_conversation: true
   requested_slot:
     type: categorical
     values:
@@ -61,6 +85,12 @@ responses:
   - text: I can tell you about his skills, education, professional experience and goals. What would you like to know?
   utter_company_confirmation:
   - text: Great! Let's see if Jan is a fit for {ORG}.
+  utter_interview_complete:
+  - text: Thank you for your time! I hope you enjoyed getting to know Jan.
+  utter_skills_generic:
+  - text: Jan has experience with {skill_programming_languages}. Would you like to know his level in one of those languages?
+  utter_skill_programming_language:
+  - text: Jan knows {skill_programming_language} {skill_level}.
 actions:
 - utter_company_qst
 - utter_company_confirmation
@@ -70,9 +100,21 @@ actions:
 - utter_out_of_scope
 - utter_ambiguous_input
 - utter_default
+- utter_interview_complete
 - validate_interviewer_name
+- utter_skills_generic
 - action_get_skill_programming_language
+- utter_skill_programming_language
 forms:
+  jan_form:
+    required_slots:
+    - jan_email
+    - jan_skills
+    - jan_skills_programming_language
+    - jan_specific_skill
+    - jan_education
+    - jan_exp
+    - jan_goals
   interviewer_company_form:
     required_slots:
     - interviewer_name

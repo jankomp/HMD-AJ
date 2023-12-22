@@ -9,15 +9,15 @@ intents:
 - welcome_greet
 - out_of_scope
 - jan_skills_generic
-- jan_programing_language
+- jan_programming_language
 entities:
 - ORG
 - interviewer_name
 - company_domain
 - interviewer_email
 - jan_email
-- jan_skills
-- jan_skill_programming_languages
+- skill_programming_languages
+- skill_programming_language
 - jan_specific_skill
 - jan_education
 - jan_exp
@@ -60,7 +60,6 @@ slots:
     values:
     - jan_email
     - jan_skills
-    - jan_skills_programming_language
     - jan_specific_skill
     - jan_education
     - jan_exp
@@ -90,8 +89,10 @@ responses:
   utter_skills_generic:
   - text: Jan has experience with {skill_programming_languages}. Would you like to know his level in one of those languages?
   utter_skill_programming_language:
-  - text: Jan knows {skill_programming_language} {skill_level}.
+  - text: Jan's level of {skill_programming_language} is {skill_level}.
 actions:
+- action_get_skill_programming_language
+- utter_skill_programming_language
 - utter_company_qst
 - utter_company_confirmation
 - utter_welcome_greet
@@ -103,14 +104,11 @@ actions:
 - utter_interview_complete
 - validate_interviewer_name
 - utter_skills_generic
-- action_get_skill_programming_language
-- utter_skill_programming_language
 forms:
   jan_form:
     required_slots:
     - jan_email
     - jan_skills
-    - jan_skills_programming_language
     - jan_specific_skill
     - jan_education
     - jan_exp

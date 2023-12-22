@@ -24,3 +24,16 @@ stories:
   - action: utter_possible_questions
   - action: jan_form
   - active_loop: jan_form
+
+- story: programming_language_specific
+  steps:
+  - intent: jan_programming_language
+    entities:
+    - skill_programming_language: python
+  - action: action_extract_slots
+  - slot_was_set:
+    - skill_programming_language: python
+  - action: action_get_skill_programming_language
+  - slot_was_set:
+    - skill_level: very good
+  - action: utter_skill_programming_language

@@ -121,6 +121,7 @@ nlu:
     - Is [Kotlin](skill_programming_language) a language Jan knows?
     - how about [C#](skill_programming_language)?
     - Has Jan experience with [C](skill_programming_language)?
+    - does Jan know [python](skill_programming_language)?
 - synonym: Jan
   examples: |
     - Jan

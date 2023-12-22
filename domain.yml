@@ -5,6 +5,7 @@ session_config:
 intents:
 - company_name
 - init_interview_question
+- possible_questions_qst
 - welcome_greet
 entities:
 - ORG
@@ -15,6 +16,9 @@ entities:
 - jan_skills
 - jan_skills_programming_language
 - jan_specific_skill
+- jan_education
+- jan_exp
+- jan_goals
 slots:
   interviewer_name:
     type: any
@@ -34,6 +38,9 @@ slots:
     - jan_skills
     - jan_skills_programming_language
     - jan_specific_skill
+    - jan_education
+    - jan_exp
+    - jan_goals
     mappings:
     - type: custom
     influence_conversation: true

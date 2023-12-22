@@ -47,6 +47,22 @@ nlu:
     - What is he like?
     - can you tell me more about Jan?
     - what can he do?
+    - What about Jan?
+    - start
+    - let's go!
+    - let's start
+    - let's start the interview
+    - can you begin?
+    - i'm from Universal Studios
+    - can you tell me about Jan?
+- intent: possible_questions_qst
+  examples: |
+    - what was it that I could ask you about?
+    - what can I ask you about?
+    - what are the possible questions?
+    - what are the possibilitites?
+    - tell me what you know about.
+    - what info can I get from you?
 - synonym: Programer
   examples: |
     - Programmer

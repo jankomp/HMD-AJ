@@ -39,3 +39,7 @@ rules:
     - intent: company_name
     - action: utter_company_confirmation
 
+- rule: utter_possible_questions
+  steps:
+    - intent: possible_questions_qst
+    - action: utter_possible_questions

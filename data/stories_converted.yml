@@ -17,6 +17,12 @@ stories:
     - ORG: Apple
   - action: utter_company_confirmation
 
+- story: init_interview
+  steps:
+  - intent: init_interview_question
+  - action: utter_intro
+  - action: utter_possible_questions
+
 - story: interactive_story_1
   steps:
   - intent: welcome_greet
@@ -28,6 +34,21 @@ stories:
   - slot_was_set:
     - ORG: Microsoft
   - action: utter_company_confirmation
-  - intent: company_name
   - intent: init_interview_question
   - action: utter_intro
+  - action: utter_possible_questions
+
+- story: interactive_story_2
+  steps:
+  - intent: welcome_greet
+  - action: utter_welcome_greet
+  - action: utter_company_qst
+  - intent: init_interview_question
+    entities:
+    - ORG: Universal Studios
+  - slot_was_set:
+    - ORG: Universal Studios
+  - action: utter_company_confirmation
+  - intent: init_interview_question
+  - action: utter_intro
+  - action: utter_possible_questions

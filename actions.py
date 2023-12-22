@@ -30,9 +30,14 @@ class ActionGetSkillProgrammingLanguage(Action):
 			'c++': 'good',
 			'c': 'basic',
 			'c#': 'good',
-			'javascript':
-			'very good',
-			'AL': 'exceptional'}
+			'javascript': 'very good',
+			'typescript': 'good',
+			'AL': 'exceptional',
+			'C/AL': 'very good',
+			'SQL': 'very good',
+			'HTML': 'very good, not a programming language though',
+			'CSS': 'good, not a programming language though',
+			}
 		return programming_languages_dictionary
 
 	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:

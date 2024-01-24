@@ -48,9 +48,6 @@ nlu:
     - can you tell me more about Jan?
     - what can he do?
     - What about Jan?
-    - start
-    - let's go!
-    - let's start
     - let's start the interview
     - can you begin?
     - i'm from Universal Studios
@@ -92,7 +89,6 @@ nlu:
 - intent: jan_skills_generic
   examples: |
     - what are Jan's skills?
-    - what programming languages does Jan know?
     - can you tell me about his skills?
     - What skills does Jan have?
     - Can you tell me about Jan's expertise?
@@ -104,6 +100,7 @@ nlu:
     - What is Jan's skill set?
     - What are Jan's professional skills?
     - What competencies does Jan have?
+    - What does he know to do?
 - intent: jan_programming_language
   examples: |
     - does he know [Python](skill_programming_language)?
@@ -112,7 +109,7 @@ nlu:
     - Does Jan know [Python](skill_programming_language)?
     - Is Jan proficient in [Java](skill_programming_language)?
     - Can Jan code in [JavaScript](skill_programming_language)?
-    - Has Jan experience with [C++](skill_programming_language)?
+    - Has Jan experience with [HTML](skill_programming_language)?
     - Is [Ruby](skill_programming_language) one of Jan's skills?
     - Can Jan work with [Swift](skill_programming_language)?
     - Is Jan familiar with [PHP](skill_programming_language)?

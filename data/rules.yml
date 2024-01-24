@@ -1,6 +1,5 @@
 version: "3.1"
 rules:
-
 - rule: out-of-scope
   steps:
   - intent: out_of_scope
@@ -31,15 +30,17 @@ rules:
     - action: utter_possible_questions
 
 - rule: submit form
-#  condition:
-#    - active_loop: interviewer_company_form_form
-#  steps:
-#      - action: interviewer_company_form      # run the form
-#      - active_loop: null
-#      - action: utter_interview_complete
   condition:
     - active_loop: jan_form
   steps:
     - action: jan_form
     - active_loop: null
     - action: utter_interview_complete
+
+#- rule: submit form interview
+#  condition:
+#    - active_loop: interviewer_company_form_form
+#  steps:
+#      - action: interviewer_company_form      # run the form
+#      - active_loop: null
+#      - action: utter_interview_complete

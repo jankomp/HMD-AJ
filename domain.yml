@@ -83,7 +83,7 @@ responses:
   utter_possible_questions:
   - text: I can tell you about his skills, education, professional experience and goals. What would you like to know?
   utter_company_confirmation:
-  - text: Great! Let's see if Jan is a fit for {ORG}.
+  - text: Great! Let's see if Jan is a fit for {ORG}. What can I help you with?
   utter_interview_complete:
   - text: Thank you for your time! I hope you enjoyed getting to know Jan.
   utter_skills_generic:

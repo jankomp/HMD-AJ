@@ -11,12 +11,36 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
+from rasa_sdk.events import UserUtteranceReverted
 from typing import Text, List, Any, Dict
 
 from rasa_sdk import Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 import re
+
+class ActionSetJanEmail(Action):
+	def name(self) -> Text:
+		return "action_set_jan_email"
+
+	def run(self, dispatcher: CollectingDispatcher,
+			tracker: Tracker,
+			domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+		jan_email = 'jankompatscher@gmail.com'
+
+		return [SlotSet("jan_email", jan_email)]
+	
+class ActionDefaultFallback(Action):
+	def name(self) -> Text:
+		return "action_default_fallback"
+
+	def run(self, dispatcher: CollectingDispatcher,
+			tracker: Tracker,
+			domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+		dispatcher.utter_message(template="utter_default")
+
+		return [UserUtteranceReverted()]
 
 class ActionGetSkillProgrammingLanguage(Action):
 	def name(self):

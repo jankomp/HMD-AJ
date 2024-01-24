@@ -1,57 +1,84 @@
 version: "3.1"
 nlu:
-- intent: welcome_greet
+- intent: out_of_scope
   examples: |
-    - just going to say hi
-    - hey
-    - hello hi
-    - Hey
-    - howdy
-    - Howdy
-    - hey there
-    - hi there
-    - Hi
-    - hi
-    - Hi there
-    - greetings
-    - long time no see
-    - hello
-    - hello there
-    - höi
-- intent: company_name
-  examples: |
-    - I am from Facebook
-    - Google
-    - XYZ is my company
-    - Tech Solutions is my company name
-    - Tech Consultancy Inc is my company's name
-    - Rasa is my company's name
-    - Nike is where I work
-    - I work at Meta
-    - I am a recruiter working for Microsoft
-    - i'm from Meta
-    - Microsoft
-    - i am from X
-    - X
-    - I am working for the hiring firm HireStars and we are searching candidates for Eos Solutions
-    - i'm from Twitter
-    - GM
-    - my company is Wuerth Phoenix
-    - i am from Apple
-- intent: init_interview_question
-  examples: |
-    - What can you tell me about yourself?
-    - Tell me about yourself
-    - What can you tell me about Jan?
-    - Tell me about Jan
-    - What is he like?
-    - can you tell me more about Jan?
-    - what can he do?
-    - What about Jan?
-    - let's start the interview
-    - can you begin?
-    - i'm from Universal Studios
-    - can you tell me about Jan?
+    - I am asking you an out of scope question
+    - 4 + 2 = ?
+    - After registration I see that I have an available balance of 0.00000000. What does this balance represent?
+    - Are you ready?
+    - But you're an english site :(
+    - Can I ask you questions first?
+    - Can I die
+    - Can I get a hamburger?
+    - Can YouTube talk?
+    - Can you call me back ?
+    - Can you give me your datacenter's password
+    - Can you make sandwiches?
+    - Can you please send me an uber
+    - Do I have to accept?
+#- intent: company_name
+#  examples: |
+#    - I am from Facebook
+#    - Google
+#    - XYZ is my company
+#    - Tech Solutions is my company name
+#    - Tech Consultancy Inc is my company's name
+#    - Rasa is my company's name
+#    - Nike is where I work
+#    - I work at Meta
+#    - I am a recruiter working for Microsoft
+#    - i'm from Meta
+#    - Microsoft
+#    - i am from X
+#    - X
+#    - I am working for the hiring firm HireStars and we are searching candidates for Eos Solutions
+#    - i'm from Twitter
+#    - GM
+#    - my company is Wuerth Phoenix
+#    - i am from Apple
+#- intent: interviewer_name
+#  examples: |
+#    - My name is John
+#    - I'm Sarah
+#    - You can call me Mike
+#    - They call me Jennifer Williams
+#    - People call me Alex
+#    - I am known as Robert Davis
+#    - My last name is Smith, first name is John
+#    - My surname is Johnson, you can call me Sarah
+#    - The last name is Williams, Mike Williams
+#    - Call me Mr. Brown, Alex Brown
+#    - My family name is Davis, Robert Davis
+#    - I am Mrs. Taylor, Emma Taylor
+#    - My full name is Michael Wilson
+#    - I am Dr. Jessica Moore
+#    - My name's Chris Miller, but you can call me Chris
+#    - I am called Samantha, Samantha Jones
+#- intent: interviewer_email
+#  examples: |
+#    - My email is john@example.com
+#    - I can be reached at sarah@example.com
+#    - You can email me at mike@example.com
+#    - My email address is jennifer@example.com
+#    - Send me an email at alex@example.com
+#    - I use the email robert@example.com
+#    - Contact me at emma@example.com
+#    - My contact email is michael@example.com
+#    - You can reach me at jessica@example.com
+#    - My email id is chris@example.com
+#    - I am reachable at samantha@example.com
+#- intent: company_industry
+#  examples: |
+#    - Our company operates in the tech industry
+#    - We are in the healthcare field
+#    - The company is in the financial sector
+#    - We work in the education industry
+#    - Our field is retail
+#    - The company is part of the entertainment industry
+#    - We are in the manufacturing sector
+#    - Our industry is agriculture
+#    - The company operates in the energy sector
+#    - We are in the transportation industry
 - intent: possible_questions_qst
   examples: |
     - what was it that I could ask you about?
@@ -70,23 +97,19 @@ nlu:
     - What can you answer about Jan?
     - What can I learn about Jan from you?
     - What questions about Jan can you respond to?
-- intent: out_of_scope
+- intent: jan_email_qst
   examples: |
-    - I am asking you an out of scope question
-    - 4 + 2 = ?
-    - After registration I see that I have an available balance of 0.00000000. What does this balance represent?
-    - Are you ready?
-    - But you're an english site :(
-    - Can I ask you questions first?
-    - Can I die
-    - Can I get a hamburger?
-    - Can YouTube talk?
-    - Can you call me back ?
-    - Can you give me your datacenter's password
-    - Can you make sandwiches?
-    - Can you please send me an uber
-    - Do I have to accept?
-- intent: jan_skills_generic
+    - What is Jan's email?
+    - Can you tell me Jan's email?
+    - I need Jan's email address.
+    - Could you give me Jan's email?
+    - I'm looking for Jan's email.
+    - Can I get Jan's email address?
+    - Do you have Jan's email?
+    - I'd like to know Jan's email.
+    - Can you share Jan's email?
+    - What's the email address for Jan?
+- intent: jan_skills_qst
   examples: |
     - what are Jan's skills?
     - can you tell me about his skills?
@@ -101,7 +124,7 @@ nlu:
     - What are Jan's professional skills?
     - What competencies does Jan have?
     - What does he know to do?
-- intent: jan_programming_language
+- intent: jan_specific_skill_qst
   examples: |
     - does he know [Python](skill_programming_language)?
     - is he proficient in [Rust](skill_programming_language)?
@@ -119,6 +142,43 @@ nlu:
     - how about [C#](skill_programming_language)?
     - Has Jan experience with [C](skill_programming_language)?
     - does Jan know [python](skill_programming_language)?
+- intent: jan_education_qst
+  examples: |
+    - Can you provide information on Jan's education?
+    - I'm interested in Jan's educational qualifications.
+    - What qualifications does Jan hold?
+    - What is Jan's academic background?
+    - Can you tell me more about Jan's studies?
+    - What is Jan's educational background?
+    - Can you tell me about Jan's education?
+    - Where did Jan go to school?
+    - What degrees does Jan have?
+    - What did Jan study?
+    - Can you share details about Jan's academic qualifications?
+- intent: jan_prof_experience_qst
+  examples: |
+    - I'd like to know more about Jan's professional background.
+    - What kind of jobs has Jan done in the past?
+    - Can you provide some information on Jan's work history?
+    - What is Jan's experience in the field?
+    - Can you tell me more about Jan's previous roles?
+    - What is Jan's work experience?
+    - Can you tell me about Jan's professional experience?
+    - Where has Jan worked before?
+    - What jobs has Jan had?
+    - Can you share details about Jan's employment history?
+- intent: jan_goals_qst
+  examples: |
+    - What are Jan's future plans?
+    - Can you tell me about Jan's ambitions?
+    - What is Jan's career plan?
+    - What are Jan's professional targets?
+    - Can you tell me more about what Jan hopes to achieve in his career?
+    - What are Jan's career goals?
+    - Can you tell me about Jan's professional objectives?
+    - What is Jan aiming for in his career?
+    - What does Jan want to achieve professionally?
+    - Can you share details about Jan's career aspirations?
 - synonym: Jan
   examples: |
     - Jan

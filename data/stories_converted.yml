@@ -1,33 +1,40 @@
 version: "3.1"
 stories:
 
-- story: greet_user
-  steps:
-  - intent: welcome_greet
-  - action: utter_welcome_greet
-  - action: utter_company_qst
+#- story: affirm_company_name
+#  steps:
+#  - action: utter_company_qst
+#  - intent: company_name
+#    entities:
+#    - ORG: Apple
+#  - slot_was_set:
+#    - ORG: Apple
+#  - action: utter_company_confirmation
 
-- story: affirm_company_name
+#- story: init_interview
+#  steps:
+#  - intent: init_interview_question
+#  - action: utter_intro
+#  - action: utter_possible_questions
+#  - action: jan_form
+#  - active_loop: jan_form
+
+- story: jan_email_qst
   steps:
-  - action: utter_company_qst
-  - intent: company_name
-    entities:
-    - ORG: Apple
+  - intent: jan_email_qst
+  - action: action_set_jan_email
   - slot_was_set:
-    - ORG: Apple
-  - action: utter_company_confirmation
+    - jan_email: jankompatscher@gmail.com
+  - action: utter_jan_email
 
-- story: init_interview
+- story: jan_skills_qst
   steps:
-  - intent: init_interview_question
-  - action: utter_intro
-  - action: utter_possible_questions
-  - action: jan_form
-  - active_loop: jan_form
+  - intent: jan_skills_qst
+  - action: utter_jan_skills_generic
 
-- story: programming_language_specific
+- story: jan_specific_skill_qst
   steps:
-  - intent: jan_programming_language
+  - intent: jan_specific_skill_qst
     entities:
     - skill_programming_language: python
   - action: action_extract_slots
@@ -36,4 +43,24 @@ stories:
   - action: action_get_skill_programming_language
   - slot_was_set:
     - skill_level: very good
-  - action: utter_skill_programming_language
+  - action: utter_jan_skill_specific
+
+- story: jan_education_qst
+  steps:
+  - intent: jan_education_qst
+  - action: utter_jan_education
+
+- story: jan_prof_experience_qst
+  steps:
+  - intent: jan_prof_experience_qst
+  - action: utter_jan_experience
+
+- story: jan_goals_qst
+  steps:
+  - intent: jan_goals_qst
+  - action: utter_jan_goals
+
+- story: possible_questions_qst
+  steps:
+  - intent: possible_questions_qst
+  - action: utter_possible_questions

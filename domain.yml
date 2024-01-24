@@ -3,17 +3,22 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- company_name
-- init_interview_question
+#- company_name
+#- interviewer_name
+#- interviewer_email
+#- company_industry
+- jan_email_qst
+- jan_skills_qst
+- jan_specific_skill_qst
+- jan_education_qst
+- jan_prof_experience_qst
+- jan_goals_qst
 - possible_questions_qst
-- welcome_greet
 - out_of_scope
-- jan_skills_generic
-- jan_programming_language
 entities:
 - ORG
 - interviewer_name
-- company_domain
+- company_industry
 - interviewer_email
 - jan_email
 - skill_programming_languages
@@ -28,12 +33,22 @@ slots:
     mappings:
     - type: from_entity
       entity: interviewer_name
+  interviewer_email:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: interviewer_email
   ORG:
     type: text
-    initial_value: not sure
+    initial_value: your company
     mappings:
     - type: from_entity
       entity: ORG
+  jan_email:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: jan_email
   skill_programming_languages:
     type: text
     mappings:
@@ -55,67 +70,84 @@ slots:
     mappings:
     - type: custom
       influence_conversation: true
-  requested_slot:
-    type: categorical
-    values:
-    - jan_email
-    - jan_skills
-    - jan_specific_skill
-    - jan_education
-    - jan_exp
-    - jan_goals
-    mappings:
-    - type: custom
-    influence_conversation: true
+  #requested_slot:
+  #  type: categorical
+  #  values:
+  #  - jan_email
+  #  - jan_skills
+  #  - jan_specific_skill
+  #  - jan_education
+  #  - jan_experience
+  #  - jan_goals
+  #  mappings:
+  #  - type: custom
+  #  influence_conversation: true
 responses:
-  utter_out_of_scope:
-  - text: Sadly, I am not able to answer your question. I invite you to reach out to Jan directly via email at {jan_email}.
-  utter_default:
-  - text: Sorry, I didn't understand that. Can you please retype it?
-  utter_ambiguous_input:
-  - text: I must ask you to limit yourself to one topic per message to ensure smooth interaction.
-  utter_welcome_greet:
-  - text: Hello There! I am Artificial Jan (AJ). The chatbot that will help you get to know Jan better.
-  utter_company_qst:
-  - text: What company are you from?
-  utter_intro:
-  - text: I will gladly tell you about Jan! He is a software developer from Italy, currently completing his Master's with the EIT Digital Programme in Human-Computer Interaction and Design in the Universities Aalto in Finland and Università di Trento in Italy.
+#  utter_welcome_greet:
+#  - text: Hello There! I am Artificial Jan (AJ). The chatbot that will help you get to know Jan better.
+#  utter_name_qst:
+#  - text: What is your name?
+#  utter_email_qst:
+#  - text: What is your email address?
+#  utter_company_qst:
+#  - text: What company are you from?
+#  utter_company_industry_qst:
+#  - text: What is area does your company operate in?
+  #utter_intro:
+  #- text: Jan is a software developer from Italy, currently completing his Master's with the EIT Digital Programme in Human-Computer Interaction and Design in the Universities Aalto in Finland and Università di Trento in Italy.
+  #utter_company_confirmation:
+  #- text: Great! Let's see if Jan is a fit for {ORG}. What can I help you with?
+  #utter_interview_complete:
+  #- text: Thank you for your time! I hope you enjoyed getting to know Jan.
+  utter_jan_email:
+  - text: Jan's email is {jan_email}
+  utter_jan_skills_generic:
+  - text: Jan has experience with {skill_programming_languages}. Would you like to know his level in one of those languages?
+  utter_jan_skill_specific:
+  - text: Jan's level of {skill_programming_language} is {skill_level}.
+  utter_jan_education:
+  - text: Jan has a Bachelor's Degree in Mediainformatics & Visual Computer Science from the Technical University of Vienna.
+  utter_jan_experience:
+  - text: Jan has worked as a Software Developer at AOS Solutions in Bolzano and as a Research Assistant at Aalto University.
+  utter_jan_goals:
+  - text: Jan is looking for a job as a Software Developer in the field of Human-Computer Interaction and Design in Finland.
   utter_possible_questions:
   - text: I can tell you about his skills, education, professional experience and goals. What would you like to know?
-  utter_company_confirmation:
-  - text: Great! Let's see if Jan is a fit for {ORG}. What can I help you with?
-  utter_interview_complete:
-  - text: Thank you for your time! I hope you enjoyed getting to know Jan.
-  utter_skills_generic:
-  - text: Jan has experience with {skill_programming_languages}. Would you like to know his level in one of those languages?
-  utter_skill_programming_language:
-  - text: Jan's level of {skill_programming_language} is {skill_level}.
+  utter_out_of_scope:
+  - text: Sadly, I am not able to answer your question. I invite you to reach out to Jan directly via email at {jan_email}.
+ # utter_default:
+ # - text: Sorry, I didn't understand that. Can you please retype it?
 actions:
+- action_set_jan_email
 - action_get_skill_programming_language
-- utter_skill_programming_language
-- utter_company_qst
-- utter_company_confirmation
-- utter_welcome_greet
-- utter_intro
-- utter_possible_questions
+- action_default_fallback
 - utter_out_of_scope
-- utter_ambiguous_input
-- utter_default
-- utter_interview_complete
-- validate_interviewer_name
-- utter_skills_generic
-forms:
-  jan_form:
-    required_slots:
-    - jan_email
-    - jan_skills
-    - jan_specific_skill
-    - jan_education
-    - jan_exp
-    - jan_goals
-  interviewer_company_form:
-    required_slots:
-    - interviewer_name
-    - interviewer_email
-    - ORG
-    - company_domain
+#- utter_default
+#- utter_name_qst
+#- utter_email_qst
+#- utter_company_qst
+#- utter_company_confirmation
+#- utter_company_industry_qst
+#- utter_interview_complete
+- utter_possible_questions
+- utter_jan_email
+- utter_jan_skills_generic
+- utter_jan_skill_specific
+- utter_jan_education
+- utter_jan_experience
+- utter_jan_goals
+#forms:
+#  jan_form:
+#    required_slots:
+#    - jan_email
+#    - jan_skills
+#    - jan_specific_skill
+#    - jan_education
+#    - jan_experience
+#    - jan_goals
+  #interviewer_company_form:
+  #  required_slots:
+  #  - interviewer_name
+  #  - interviewer_email
+  #  - ORG
+  #  - company_industry

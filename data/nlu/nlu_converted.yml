@@ -103,12 +103,12 @@ nlu:
     - Can you tell me Jan's email?
     - I need Jan's email address.
     - Could you give me Jan's email?
-    - I'm looking for Jan's email.
+    - I'm looking for Jan's e-mail.
     - Can I get Jan's email address?
     - Do you have Jan's email?
     - I'd like to know Jan's email.
     - Can you share Jan's email?
-    - What's the email address for Jan?
+    - What's the e-mail address for Jan?
 - intent: jan_skills_qst
   examples: |
     - what are Jan's skills?
@@ -157,6 +157,7 @@ nlu:
     - Can you share details about Jan's academic qualifications?
 - intent: jan_prof_experience_qst
   examples: |
+    - What did he work?
     - I'd like to know more about Jan's professional background.
     - What kind of jobs has Jan done in the past?
     - Can you provide some information on Jan's work history?
@@ -189,6 +190,21 @@ nlu:
     - the candidate
     - Mr. Kompatscher
     - Jan Kompatscher
+- synonym: education
+  examples: |
+    - school
+    - academic background
+    - University
+    - studies
+    - academic qualifications
+- synonym: professional |
+  examples: |
+    - work
+    - professional background
+    - job
+    - previous jobs
+    - employment history
+    - previous roles
 - synonym: ORG
   examples: |
     - ORG

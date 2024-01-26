@@ -24,11 +24,6 @@ stories:
   - intent: thanks
   - action: utter_youre_welcome
 
-- story: welcome_greet
-  steps:
-  - intent: welcome_greet
-  - action: utter_offer_help
-
 - story: goodbye_greet
   steps:
   - intent: goodbye_greet

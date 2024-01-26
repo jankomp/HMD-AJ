@@ -3,9 +3,9 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- interviewer_name
+- interviewer_email
 #- company_name
-#- interviewer_name
-#- interviewer_email
 #- company_industry
 - thanks
 - welcome_greet
@@ -32,15 +32,19 @@ entities:
 - jan_goals
 slots:
   interviewer_name:
-    type: any
+    type: text
     mappings:
     - type: from_entity
       entity: interviewer_name
+      condition:
+      - active_loop: interviewer_company_form
   interviewer_email:
     type: any
     mappings:
     - type: from_entity
       entity: interviewer_email
+      condition:
+      - active_loop: interviewer_company_form
   company_name:
     type: text
     initial_value: your company
@@ -86,14 +90,14 @@ slots:
   #  - type: custom
   #  influence_conversation: true
 responses:
-  utter_name_qst:
+  utter_ask_interviewer_name:
   - text: What is your name?
-  utter_email_qst:
+  utter_ask_interviewer_email:
   - text: What is your email address?
 #  utter_company_qst:
 #  - text: What company are you from?
 #  utter_company_industry_qst:
-#  - text: What is area does your company operate in?
+#  - text: What area does your company operate in?
   #utter_intro:
   #- text: Jan is a software developer from Italy, currently completing his Master's with the EIT Digital Programme in Human-Computer Interaction and Design in the Universities Aalto in Finland and Università di Trento in Italy.
   #utter_company_confirmation:
@@ -116,27 +120,31 @@ responses:
   - text: I can tell you about Jan's skills, education, professional experience and goals. What would you like to know?
   utter_out_of_scope:
   - text: Sadly, I am not able to answer your question. I invite you to reach out to Jan directly via email at {jan_email}.
-  utter_offer_help:
-  - text: What can I help you with?
   utter_youre_welcome:
   - text: You're welcome.
   utter_goodbye:
   - text: Have a nice day! I hope I was able to help you.
+  utter_offer_help:
+  - text: Is there anything else I can help you with?
  # utter_default:
  # - text: Sorry, I didn't understand that. Can you please retype it?
 actions:
 - action_set_jan_email
 - action_get_skill_programming_language
 - action_get_skills
+- action_save_interviewer_name
+- action_save_interviewer_email
+- action_complete_interview
 - action_default_fallback
 - utter_out_of_scope
+- utter_ask_interviewer_name
+- utter_ask_interviewer_email
 #- utter_default
-#- utter_name_qst
-#- utter_email_qst
 #- utter_company_qst
 #- utter_company_confirmation
 #- utter_company_industry_qst
 #- utter_interview_complete
+- utter_offer_help
 - utter_possible_questions
 - utter_jan_email
 - utter_jan_skills_generic

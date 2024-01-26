@@ -18,6 +18,8 @@ from rasa_sdk import Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 import re
+import csv
+import datetime
 
 class ActionSetJanEmail(Action):
 	def name(self) -> Text:
@@ -80,3 +82,31 @@ class ActionGetSkills(Action):
 	def run(seld, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 		all_skills = ', '.join(programming_languages_dictionary.keys())
 		return[SlotSet("skill_programming_languages", all_skills)]
+	
+interviewer_info = {
+	'name': '',
+	'email': '',
+}
+
+class ActionCompleteInterview(Action):
+    def name(self) -> Text:
+        return "action_complete_interview"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        # Get the current date and time
+        now = datetime.datetime.now()
+        date = now.strftime("%Y-%m-%d")
+        time = now.strftime("%H:%M:%S")
+
+        # Get the interviewer's name and email
+        name = tracker.get_slot("interviewer_name")
+        email = tracker.get_slot("interviewer_email")
+
+        # Open the CSV file in append mode ('a') and write the new row
+        with open('interviews_data/interviews.csv', 'a', newline='') as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow([date, time, name, email])
+
+        return []

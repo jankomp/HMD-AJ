@@ -6,42 +6,24 @@ rules:
   - action: action_set_jan_email
   - action: utter_out_of_scope
 
-#- rule: start
-#  steps:
-#    - intent: welcome_greet
-#    - action: utter_welcome_greet
-#    - action: utter_company_qst
-#
-#- rule: start_interview
-#  steps:
-#    - intent: interview_start_generic
-#    - action: utter_intro
-#    - action: utter_possible_questions
-#    - action: jan_form
-#    - active_loop: jan_form
-#
-#- rule: company_name
-#  steps:
-#    - intent: company_name
-#    - action: utter_company_confirmation
-
 - rule: utter_possible_questions
   steps:
     - intent: possible_questions_qst
     - action: utter_possible_questions
 
-#- rule: submit form
-#  condition:
-#    - active_loop: jan_form
-#  steps:
-#    - action: jan_form
-#    - active_loop: null
-#    - action: utter_interview_complete
+- rule: activate_form
+  steps:
+    - intent: welcome_greet
+    - action: interviewer_company_form
+    - active_loop: interviewer_company_form
 
-#- rule: submit form interview
-#  condition:
-#    - active_loop: interviewer_company_form_form
-#  steps:
-#      - action: interviewer_company_form      # run the form
-#      - active_loop: null
-#      - action: utter_interview_complete
+- rule: submit_interview_form
+  condition:
+    - active_loop: interviewer_company_form
+  steps:
+      - action: interviewer_company_form      # run the form
+      - active_loop: null
+      - slot_was_set:
+        - requested_slot: null
+      - action: action_complete_interview
+      - action: utter_offer_help

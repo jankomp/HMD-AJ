@@ -124,8 +124,11 @@ nlu:
     - What are Jan's professional skills?
     - What competencies does Jan have?
     - What does he know to do?
-- intent: jan_specific_skill_qst
+- intent: jan_programming_language_qst
   examples: |
+    - [AL](skill_programming_language)
+    - [C/AL](skill_programming_language)
+    - [SQL](skill_programming_language)
     - does he know [Python](skill_programming_language)?
     - is he proficient in [Rust](skill_programming_language)?
     - [Ruby](skill_programming_language)

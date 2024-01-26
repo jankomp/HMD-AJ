@@ -30,19 +30,21 @@ stories:
 - story: jan_skills_qst
   steps:
   - intent: jan_skills_qst
+  - action: action_get_skills
+  - slot_was_set:
+    - skill_programming_languages: python, java, c++, c, c#, javascript, typescript, AL, C/AL, SQL, HTML, CSS
   - action: utter_jan_skills_generic
 
-- story: jan_specific_skill_qst
+- story: jan_programming_language_qst
   steps:
-  - intent: jan_specific_skill_qst
+  - intent: jan_programming_language_qst
     entities:
-    - skill_programming_language: python
-  - action: action_extract_slots
+    - skill_programming_language: Java
   - slot_was_set:
-    - skill_programming_language: python
+    - skill_programming_language: Java
   - action: action_get_skill_programming_language
   - slot_was_set:
-    - skill_level: very good
+    - skill_level: good
   - action: utter_jan_skill_specific
 
 - story: jan_education_qst

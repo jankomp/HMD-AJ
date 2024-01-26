@@ -9,7 +9,7 @@ intents:
 #- company_industry
 - jan_email_qst
 - jan_skills_qst
-- jan_specific_skill_qst
+- jan_programming_language_qst
 - jan_education_qst
 - jan_prof_experience_qst
 - jan_goals_qst
@@ -120,6 +120,7 @@ responses:
 actions:
 - action_set_jan_email
 - action_get_skill_programming_language
+- action_get_skills
 - action_default_fallback
 - utter_out_of_scope
 #- utter_default

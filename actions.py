@@ -41,40 +41,42 @@ class ActionDefaultFallback(Action):
 		dispatcher.utter_message(template="utter_default")
 
 		return [UserUtteranceReverted()]
-
+	
+programming_languages_dictionary = {
+	'python': 'very good',
+	'java': 'good',
+	'c++': 'good',
+	'c': 'basic',
+	'c#': 'good',
+	'javascript': 'very good',
+	'typescript': 'good',
+	'AL': 'exceptional',
+	'C/AL': 'very good',
+	'SQL': 'very good',
+	'HTML': 'very good, that is not a programming language though',
+	'CSS': 'good, that is not a programming language though',
+}
 class ActionGetSkillProgrammingLanguage(Action):
 	def name(self):
 		return 'action_get_skill_programming_language'
 
-	@staticmethod
-	def skill_db() -> Dict[Text, Text]:
-		programming_languages_dictionary = {
-			'python': 'very good',
-			'java': 'good',
-			'c++': 'good',
-			'c': 'basic',
-			'c#': 'good',
-			'javascript': 'very good',
-			'typescript': 'good',
-			'AL': 'exceptional',
-			'C/AL': 'very good',
-			'SQL': 'very good',
-			'HTML': 'very good, not a programming language though',
-			'CSS': 'good, not a programming language though',
-			}
-		return programming_languages_dictionary
 
 	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 		skill = tracker.get_slot("skill_programming_language")
 		SlotSet("skill_programming_language", skill)
-		programming_languages_dictionary = self.skill_db()
-		if skill is None:
-			all_skills = ', '.join(programming_languages_dictionary.keys())
-			return [SlotSet("skill_programming_languages", all_skills)]
 
-		skill = skill.lower()  # Convert to lowercase after checking if it's None
-		if skill in programming_languages_dictionary.keys():
-			skill_level = programming_languages_dictionary[skill]
+		skill = skill.lower()
+		programming_languages_dictionary_lower = {k.lower(): v for k, v in programming_languages_dictionary.items()}
+		if skill in programming_languages_dictionary_lower.keys():
+			skill_level = programming_languages_dictionary_lower[skill]
 		else:
 			skill_level = "no experience yet"
 		return[SlotSet("skill_level", skill_level)]
+	
+class ActionGetSkills(Action):
+	def name(self) -> Text:
+		return 'action_get_skills'
+	
+	def run(seld, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+		all_skills = ', '.join(programming_languages_dictionary.keys())
+		return[SlotSet("skill_programming_languages", all_skills)]

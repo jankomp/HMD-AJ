@@ -26,6 +26,14 @@ nlu:
     - Hey there
     - What's up?
     - Howdy
+- intent: goodbye_greet
+  examples: |
+    - Bye
+    - Goodbye
+    - See you later
+    - Bye bot
+    - Goodbye friend
+    - see ya
 - intent: thanks
   examples: |
     - thank you

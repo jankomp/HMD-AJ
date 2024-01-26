@@ -29,6 +29,11 @@ stories:
   - intent: welcome_greet
   - action: utter_offer_help
 
+- story: goodbye_greet
+  steps:
+  - intent: goodbye_greet
+  - action: utter_goodbye
+
 - story: jan_email_qst
   steps:
   - intent: jan_email_qst

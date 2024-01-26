@@ -6,9 +6,9 @@ stories:
 #  - action: utter_company_qst
 #  - intent: company_name
 #    entities:
-#    - ORG: Apple
+#    - company_name: Apple
 #  - slot_was_set:
-#    - ORG: Apple
+#    - company_name: Apple
 #  - action: utter_company_confirmation
 
 #- story: init_interview

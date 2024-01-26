@@ -43,18 +43,18 @@ class ActionDefaultFallback(Action):
 		return [UserUtteranceReverted()]
 	
 programming_languages_dictionary = {
-	'python': 'very good',
-	'java': 'good',
-	'c++': 'good',
-	'c': 'basic',
-	'c#': 'good',
-	'javascript': 'very good',
-	'typescript': 'good',
-	'AL': 'exceptional',
-	'C/AL': 'very good',
-	'SQL': 'very good',
-	'HTML': 'very good, that is not a programming language though',
-	'CSS': 'good, that is not a programming language though',
+	'python': 'a lot of experience',
+	'java': 'intermediate skills',
+	'c++': 'intermediate skills',
+	'c': 'basic ecperience',
+	'c#': 'intermediate skills',
+	'javascript': 'a lot of experience',
+	'typescript': 'intermediate skills',
+	'AL': 'exceptional skills',
+	'C/AL': 'a lot of experience',
+	'SQL': 'a lot of experience',
+	'HTML': 'a lot of experience. That is not exactly a programming language though',
+	'CSS': 'intermediate skills. That is not exactly a programming language though',
 }
 class ActionGetSkillProgrammingLanguage(Action):
 	def name(self):

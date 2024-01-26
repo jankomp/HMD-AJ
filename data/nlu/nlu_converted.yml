@@ -64,6 +64,8 @@ nlu:
 #    - i am from Apple
 #- intent: interviewer_name
 #  examples: |
+#    - John Jones
+#    - George
 #    - My name is John
 #    - I'm Sarah
 #    - You can call me Mike
@@ -78,8 +80,6 @@ nlu:
 #    - I am Mrs. Taylor, Emma Taylor
 #    - My full name is Michael Wilson
 #    - I am Dr. Jessica Moore
-#    - My name's Chris Miller, but you can call me Chris
-#    - I am called Samantha, Samantha Jones
 #- intent: interviewer_email
 #  examples: |
 #    - My email is john@example.com
@@ -234,6 +234,6 @@ nlu:
     - previous jobs
     - employment history
     - previous roles
-- synonym: ORG
+- synonym: company_name
   examples: |
-    - ORG
+    - company_name

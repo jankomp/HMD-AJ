@@ -19,7 +19,7 @@ intents:
 - possible_questions_qst
 - out_of_scope
 entities:
-- ORG
+- company_name
 - interviewer_name
 - company_industry
 - interviewer_email
@@ -41,12 +41,12 @@ slots:
     mappings:
     - type: from_entity
       entity: interviewer_email
-  ORG:
+  company_name:
     type: text
     initial_value: your company
     mappings:
     - type: from_entity
-      entity: ORG
+      entity: company_name
   jan_email:
     type: text
     mappings:
@@ -86,12 +86,10 @@ slots:
   #  - type: custom
   #  influence_conversation: true
 responses:
-#  utter_welcome_greet:
-#  - text: Hello There! I am Artificial Jan (AJ). The chatbot that will help you get to know Jan better.
-#  utter_name_qst:
-#  - text: What is your name?
-#  utter_email_qst:
-#  - text: What is your email address?
+  utter_name_qst:
+  - text: What is your name?
+  utter_email_qst:
+  - text: What is your email address?
 #  utter_company_qst:
 #  - text: What company are you from?
 #  utter_company_industry_qst:
@@ -99,7 +97,7 @@ responses:
   #utter_intro:
   #- text: Jan is a software developer from Italy, currently completing his Master's with the EIT Digital Programme in Human-Computer Interaction and Design in the Universities Aalto in Finland and Università di Trento in Italy.
   #utter_company_confirmation:
-  #- text: Great! Let's see if Jan is a fit for {ORG}. What can I help you with?
+  #- text: Great! Let's see if Jan is a fit for {company_name}. What can I help you with?
   #utter_interview_complete:
   #- text: Thank you for your time! I hope you enjoyed getting to know Jan.
   utter_jan_email:
@@ -107,7 +105,7 @@ responses:
   utter_jan_skills_generic:
   - text: Jan has experience with {skill_programming_languages}. Would you like to know his level in one of those languages?
   utter_jan_skill_specific:
-  - text: Jan's level of {skill_programming_language} is {skill_level}.
+  - text: With {skill_programming_language} Jan has {skill_level}.
   utter_jan_education:
   - text: Jan has a Bachelor's Degree in Mediainformatics & Visual Computer Science from the Technical University of Vienna.
   utter_jan_experience:
@@ -146,18 +144,12 @@ actions:
 - utter_jan_education
 - utter_jan_experience
 - utter_jan_goals
-#forms:
-#  jan_form:
-#    required_slots:
-#    - jan_email
-#    - jan_skills
-#    - jan_specific_skill
-#    - jan_education
-#    - jan_experience
-#    - jan_goals
-  #interviewer_company_form:
-  #  required_slots:
-  #  - interviewer_name
-  #  - interviewer_email
-  #  - ORG
-  #  - company_industry
+forms:
+  interviewer_company_form:
+    ignored_intents:
+    - out_of_scope
+    required_slots:
+    - interviewer_name
+    - interviewer_email
+    #- company_name
+    #- company_industry

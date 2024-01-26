@@ -16,6 +16,24 @@ nlu:
     - Can you make sandwiches?
     - Can you please send me an uber
     - Do I have to accept?
+- intent: welcome_greet
+  examples: |
+    - hi
+    - Hello
+    - Hey
+    - Hi
+    - Hello there
+    - Hey there
+    - What's up?
+    - Howdy
+- intent: thanks
+  examples: |
+    - thank you
+    - thanks
+    - thx
+    - thanks a lot
+    - thank you very much
+    - thank you so much
 #- intent: company_name
 #  examples: |
 #    - I am from Facebook

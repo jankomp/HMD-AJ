@@ -19,6 +19,16 @@ stories:
 #  - action: jan_form
 #  - active_loop: jan_form
 
+- story: youre_welcome
+  steps:
+  - intent: thanks
+  - action: utter_youre_welcome
+
+- story: welcome_greet
+  steps:
+  - intent: welcome_greet
+  - action: utter_offer_help
+
 - story: jan_email_qst
   steps:
   - intent: jan_email_qst

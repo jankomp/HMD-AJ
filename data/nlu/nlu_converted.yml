@@ -1,5 +1,8 @@
 version: "3.1"
 nlu:
+- regex: EMAIL
+  examples: |
+    - \b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b
 - intent: out_of_scope
   examples: |
     - I am asking you an out of scope question
@@ -64,32 +67,36 @@ nlu:
 #    - i am from Apple
 - intent: interviewer_name
   examples: |
-    - [John Jones](interviewer_name)
-    - [George](interviewer_name)
-    - My name is [John](interviewer_name)
-    - I'm [Sarah](interviewer_name)
-    - You can call me [Mike](interviewer_name)
-    - They call me [Jennifer Williams](interviewer_name)
-    - People call me [Alex](interviewer_name)
-    - I am known as [Robert Davis](interviewer_name)
-    - My family name is Davis, [Robert Davis](interviewer_name)
-    - My full name is [Michael Wilson](interviewer_name)
-    - I am Dr. [Jessica Moore](interviewer_name)
+    - [John Jones](PERSON)
+    - [George](PERSON)
+    - My name is [John](PERSON)
+    - I'm [Sarah](PERSON)
+    - You can call me [Mike](PERSON)
+    - They call me [Jennifer Williams](PERSON)
+    - People call me [Alex](PERSON)
+    - I am known as [Robert Davis](PERSON)
+    - My family name is Davis, [Robert Davis](PERSON)
+    - My full name is [Michael Wilson](PERSON)
+    - I am Dr. [Jessica Moore](PERSON)
+    - [Judy](PERSON)
+    - Call me [Thomas](PERSON)
+    - I go by [Alley](PERSON)
+    - My name's [Li](PERSON)
 - intent: interviewer_email
   examples: |
-    - [frank.sinatra@nyc.ac.at](interviewer_email)
-    - [simon.pegg@hollywood.us](interviewer_email)
-    - My email is [john@domain.it](interviewer_email)
-    - I can be reached at [sarah@email.com](interviewer_email)
-    - You can email me at [mike@gmail.com](interviewer_email)
-    - My email address is [jennifer@yahoo.com](interviewer_email)
-    - Send me an email at [alex@company.fi](interviewer_email)
-    - I use the email [robert@dhl.de](interviewer_email)
-    - Contact me at [emma@tesla.us](interviewer_email)
-    - My contact email is [michael@facebook.at](interviewer_email)
-    - You can reach me at [jessica@doss.sp](interviewer_email)
-    - My email id is [chris@hmail.net](interviewer_email)
-    - I am reachable at [samantha@example.com](interviewer_email)
+    - [frank.sinatra@nyc.ac.at](EMAIL)
+    - [simon.pegg@hollywood.us](EMAIL)
+    - My email is [john@domain.it](EMAIL)
+    - I can be reached at [sarah@email.com](EMAIL)
+    - You can email me at [mike@gmail.com](EMAIL)
+    - My email address is [jennifer@yahoo.com](EMAIL)
+    - Send me an email at [alex@company.fi](EMAIL)
+    - I use the email [robert@dhl.de](EMAIL)
+    - Contact me at [emma@tesla.us](EMAIL)
+    - My contact email is [michael@facebook.at](EMAIL)
+    - You can reach me at [jessica@doss.sp](EMAIL)
+    - My email id is [chris@hmail.net](EMAIL)
+    - I am reachable at [samantha@example.com](EMAIL)
 #- intent: company_industry
 #  examples: |
 #    - Our company operates in the tech industry

@@ -20,9 +20,11 @@ intents:
 - out_of_scope
 entities:
 - company_name
+- PERSON
 - interviewer_name
 - company_industry
 - interviewer_email
+- EMAIL
 - jan_email
 - skill_programming_languages
 - skill_programming_language
@@ -35,14 +37,14 @@ slots:
     type: text
     mappings:
     - type: from_entity
-      entity: interviewer_name
+      entity: PERSON
       condition:
       - active_loop: interviewer_company_form
   interviewer_email:
     type: any
     mappings:
     - type: from_entity
-      entity: interviewer_email
+      entity: EMAIL
       condition:
       - active_loop: interviewer_company_form
   company_name:
@@ -156,6 +158,12 @@ forms:
   interviewer_company_form:
     ignored_intents:
     - out_of_scope
+    - jan_email_qst
+    - jan_skills_qst
+    - jan_programming_language_qst
+    - jan_education_qst
+    - jan_prof_experience_qst
+    - jan_goals_qst
     required_slots:
     - interviewer_name
     - interviewer_email

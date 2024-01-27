@@ -103,10 +103,11 @@ class ActionCompleteInterview(Action):
         # Get the interviewer's name and email
         name = tracker.get_slot("interviewer_name")
         email = tracker.get_slot("interviewer_email")
+        company = tracker.get_slot("company_name")
 
         # Open the CSV file in append mode ('a') and write the new row
         with open('interviews_data/interviews.csv', 'a', newline='') as csvfile:
             writer = csv.writer(csvfile)
-            writer.writerow([date, time, name, email])
+            writer.writerow([date, time, name, email, company])
 
         return []

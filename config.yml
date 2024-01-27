@@ -10,7 +10,7 @@ pipeline:
   - name: SpacyNLP
     model: "en_core_web_md"
   - name: SpacyEntityExtractor
-    dimensions: ["PERSON"]
+    dimensions: ["PERSON", "ORG"]
   - name: RegexFeaturizer
   - name: RegexEntityExtractor
     case_sensitive: false

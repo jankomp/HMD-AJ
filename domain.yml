@@ -4,8 +4,9 @@ session_config:
   carry_over_slots_to_new_session: true
 intents:
 - interviewer_name
-- interviewer_email
-#- company_name
+- interviewer_email:
+    ignore_entities: ORG
+- company_name
 #- company_industry
 - thanks
 - welcome_greet
@@ -19,12 +20,14 @@ intents:
 - possible_questions_qst
 - out_of_scope
 entities:
-- company_name
-- PERSON
 - interviewer_name
-- company_industry
+- PERSON
 - interviewer_email
 - EMAIL
+- company_name
+- ORG:
+    influence_conversation: false
+- company_industry
 - jan_email
 - skill_programming_languages
 - skill_programming_language
@@ -40,6 +43,7 @@ slots:
       entity: PERSON
       condition:
       - active_loop: interviewer_company_form
+      - requested_slot: interviewer_name
   interviewer_email:
     type: any
     mappings:
@@ -47,12 +51,15 @@ slots:
       entity: EMAIL
       condition:
       - active_loop: interviewer_company_form
+      - requested_slot: interviewer_email
   company_name:
     type: text
-    initial_value: your company
     mappings:
     - type: from_entity
-      entity: company_name
+      entity: ORG
+      condition:
+      - active_loop: interviewer_company_form
+      - requested_slot: company_name
   jan_email:
     type: text
     mappings:
@@ -96,8 +103,8 @@ responses:
   - text: What is your name?
   utter_ask_interviewer_email:
   - text: What is your email address?
-#  utter_company_qst:
-#  - text: What company are you from?
+  utter_ask_company_name:
+  - text: What company are you from?
 #  utter_company_industry_qst:
 #  - text: What area does your company operate in?
   #utter_intro:
@@ -141,8 +148,8 @@ actions:
 - utter_out_of_scope
 - utter_ask_interviewer_name
 - utter_ask_interviewer_email
+- utter_ask_company_name
 #- utter_default
-#- utter_company_qst
 #- utter_company_confirmation
 #- utter_company_industry_qst
 #- utter_interview_complete
@@ -167,5 +174,5 @@ forms:
     required_slots:
     - interviewer_name
     - interviewer_email
-    #- company_name
+    - company_name
     #- company_industry

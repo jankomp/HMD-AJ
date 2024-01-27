@@ -7,7 +7,8 @@ intents:
 - interviewer_email:
     ignore_entities: ORG
 - company_name
-#- company_industry
+- company_industry:
+    ignore_entities: ORG
 - thanks
 - welcome_greet
 - goodbye_greet
@@ -60,6 +61,14 @@ slots:
       condition:
       - active_loop: interviewer_company_form
       - requested_slot: company_name
+  company_industry:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: company_industry
+      condition:
+      - active_loop: interviewer_company_form
+      - requested_slot: company_industry
   jan_email:
     type: text
     mappings:
@@ -105,8 +114,8 @@ responses:
   - text: What is your email address?
   utter_ask_company_name:
   - text: What company are you from?
-#  utter_company_industry_qst:
-#  - text: What area does your company operate in?
+  utter_ask_company_industry:
+  - text: What area does your company operate in?
   #utter_intro:
   #- text: Jan is a software developer from Italy, currently completing his Master's with the EIT Digital Programme in Human-Computer Interaction and Design in the Universities Aalto in Finland and Università di Trento in Italy.
   #utter_company_confirmation:
@@ -149,9 +158,9 @@ actions:
 - utter_ask_interviewer_name
 - utter_ask_interviewer_email
 - utter_ask_company_name
+- utter_ask_company_industry
 #- utter_default
 #- utter_company_confirmation
-#- utter_company_industry_qst
 #- utter_interview_complete
 - utter_offer_help
 - utter_possible_questions
@@ -175,4 +184,4 @@ forms:
     - interviewer_name
     - interviewer_email
     - company_name
-    #- company_industry
+    - company_industry

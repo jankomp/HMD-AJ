@@ -1,5 +1,2 @@
-date,time,name,email,company
-2024-01-27,18:57:21,angela,angela.bauer@hotmail.net,your company
-2024-01-27,19:06:36,Bob,bob@email.com,bob@email.com
-2024-01-27,19:29:25,Bob,bob@company.com,bob@company.com
-2024-01-27,19:39:17,John,johnsmith@gmail.com,Google
+date,time,name,email,company,sector
+2024-01-27,22:15:27,Law,mike.johnson@gmail.com,Johnson & Johnson,Law

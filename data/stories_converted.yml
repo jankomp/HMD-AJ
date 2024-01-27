@@ -76,3 +76,52 @@ stories:
   steps:
   - intent: possible_questions_qst
   - action: utter_possible_questions
+
+- story: interactive_story_1
+  steps:
+  - intent: welcome_greet
+  - action: interviewer_company_form
+  - active_loop: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: interviewer_name
+  - intent: interviewer_name
+    entities:
+    - PERSON: Franz Baumgartner
+  - slot_was_set:
+    - interviewer_name: Franz Baumgartner
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: interviewer_email
+  - intent: interviewer_email
+    entities:
+    - EMAIL: franz.baumgartner@fercam.it
+  - slot_was_set:
+    - interviewer_email: franz.baumgartner@fercam.it
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: company_name
+  - intent: company_name
+    entities:
+    - ORG: Fercam
+  - slot_was_set:
+    - company_name: Fercam
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: company_industry
+  - intent: company_industry
+    entities:
+    - company_industry: Transportation
+  - slot_was_set:
+    - company_industry: Transportation
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_complete_interview
+  - action: utter_offer_help
+  - intent: jan_education_qst
+  - action: utter_jan_education
+  - intent: possible_questions_qst
+  - action: utter_possible_questions
+  - intent: jan_goals_qst
+  - action: utter_jan_goals

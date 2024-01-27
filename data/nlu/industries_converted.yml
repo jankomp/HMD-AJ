@@ -1,0 +1,221 @@
+version: "3.1"
+nlu:
+  - lookup: company_industry
+    examples: |
+      - healthcare
+      - technology
+      - finance
+      - education
+      - manufacturing
+      - retail
+      - automotive
+      - telecommunications
+      - energy
+      - agriculture
+      - pharmaceuticals
+      - real estate
+      - hospitality
+      - transportation
+      - entertainment
+      - media
+      - aerospace
+      - defense
+      - consumer goods
+      - e-commerce
+      - logistics
+      - consulting
+      - insurance
+      - legal
+      - marketing
+      - advertising
+      - food and beverage
+      - construction
+      - architecture
+      - environmental
+      - gaming
+      - fitness
+      - sports
+      - nonprofit
+      - government
+      - research
+      - biotechnology
+      - robotics
+      - artificial intelligence
+      - virtual reality
+      - augmented reality
+      - renewable energy
+      - mining
+      - cybersecurity
+      - information technology
+      - software development
+      - hardware
+      - nanotechnology
+      - fashion
+      - beauty
+      - design
+      - art
+      - music
+      - publishing
+      - journalism
+      - social media
+      - telecommunications
+      - internet of things (IoT)
+      - clean energy
+      - waste management
+      - water treatment
+      - forestry
+      - fishing
+      - wildlife conservation
+      - space exploration
+      - meteorology
+      - geology
+      - archaeology
+      - oceanography
+      - biometrics
+      - forensics
+      - healthtech
+      - edtech
+      - fintech
+      - agritech
+      - legaltech
+      - insurtech
+      - martech
+      - proptech
+      - regtech
+      - cleantech
+      - nanotech
+      - medtech
+      - gaming industry
+      - edutainment
+      - fintainment
+      - legal services
+      - cybersecurity consulting
+      - law
+      - accounting
+      - auditing
+      - tax
+      - banking
+      - investment banking
+      - venture capital
+      - private equity
+      - asset management
+      - hedge funds
+      - private banking
+      - public relations
+      - human resources
+      - recruitment
+      - staffing
+      - executive search
+      - talent management
+      - hospitality management
+      - event management
+      - facility management
+      - project management
+      - supply chain management
+      - logistics management
+      - risk management
+      - quality management
+      - operations management
+      - customer relationship management (CRM)
+      - customer support
+      - call centers
+      - market research
+      - data analytics
+      - business intelligence
+      - cloud computing
+      - network security
+      - hardware manufacturing
+      - semiconductor manufacturing
+      - aerospace manufacturing
+      - automotive manufacturing
+      - consumer electronics
+      - pharmaceutical manufacturing
+      - food processing
+      - textile manufacturing
+      - chemical manufacturing
+      - construction materials
+      - home improvement
+      - real estate development
+      - property management
+      - architecture and design
+      - interior design
+      - landscape architecture
+      - sustainable design
+      - fine arts
+      - performing arts
+      - film production
+      - video game development
+      - graphic design
+      - advertising agencies
+      - market research
+      - public sector
+      - defense contracting
+      - intelligence services
+      - foreign affairs
+      - international development
+      - environmental conservation
+      - renewable energy
+      - utilities
+      - waste management
+      - recycling
+      - pharmaceutical research and development
+      - clinical research
+      - medical imaging
+      - healthcare IT
+      - health insurance
+      - telemedicine
+      - pharmaceutical distribution
+      - medical equipment manufacturing
+      - veterinary services
+      - pet care
+      - environmental consulting
+      - environmental engineering
+      - chemical engineering
+      - civil engineering
+      - electrical engineering
+      - mechanical engineering
+      - aerospace engineering
+      - software engineering
+      - data science
+      - artificial intelligence research
+      - machine learning
+      - robotics engineering
+      - biotechnology research
+      - nanotechnology research
+      - agricultural technology
+      - precision agriculture
+      - aquaculture
+      - fisheries
+      - mining and extraction
+      - metallurgy
+      - renewable energy consulting
+      - geothermal energy
+      - wind energy
+      - solar energy
+      - nuclear energy
+      - oil and gas exploration
+      - petroleum refining
+      - petrochemicals
+      - water utilities
+      - telecommunications infrastructure
+      - satellite communication
+      - social media management
+      - influencer marketing
+      - e-learning platforms
+      - virtual reality development
+      - augmented reality applications
+      - esports
+      - crowdfunding platforms
+      - cryptocurrency
+      - blockchain technology
+      - insurtech startups
+      - regenerative medicine
+      - personalized medicine
+      - genetic engineering
+      - stem cell research
+      - space tourism
+      - planetary exploration
+      - astrophysics research
+      - ocean exploration
+      - paleontology
+      - museum curation

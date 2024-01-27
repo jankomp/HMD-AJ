@@ -97,18 +97,20 @@ nlu:
     - You can reach me at [jessica@doss.sp](EMAIL)
     - My email id is [chris@hmail.net](EMAIL)
     - I am reachable at [samantha@example.com](EMAIL)
-#- intent: company_industry
-#  examples: |
-#    - Our company operates in the tech industry
-#    - We are in the healthcare field
-#    - The company is in the financial sector
-#    - We work in the education industry
-#    - Our field is retail
-#    - The company is part of the entertainment industry
-#    - We are in the manufacturing sector
-#    - Our industry is agriculture
-#    - The company operates in the energy sector
-#    - We are in the transportation industry
+- intent: company_industry
+  examples: |
+    - [Defense](company_industry)
+    - [Transportation](company_industry)
+    - Our company operates in the [tech industry](company_industry)
+    - We are in the [healthcare field](company_industry)
+    - The company is in the [financial sector](company_industry)
+    - We work in the [education industry](company_industry)
+    - Our field is [retail](company_industry)
+    - The company is part of the entertainment [industry](company_industry)
+    - We are in the [manufacturing sector](company_industry)
+    - Our industry is [agriculture](company_industry)
+    - The company operates in the [energy sector](company_industry)
+    - We are in the [transportation industry](company_industry)
 - intent: possible_questions_qst
   examples: |
     - what was it that I could ask you about?

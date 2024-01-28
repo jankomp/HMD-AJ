@@ -1,0 +1,129 @@
+version: "3.1"
+nlu:
+  - lookup: job_role
+    examples: |
+      - developer
+      - engineer
+      - programmer
+      - architect
+      - analyst
+      - designer
+      - manager
+      - consultant
+      - assistant
+      - secretary
+      - teacher
+      - professor
+      - tutor
+      - lecturer
+      - administrator
+      - project manager
+      - product manager
+      - team lead
+      - intern
+      - data scientist
+      - data analyst
+      - data engineer
+      - software tester
+      - quality assurance engineer
+      - qa engineer
+      - systems analyst
+      - business analyst
+      - technical writer
+      - UX/UI designer
+      - graphic designer
+      - multimedia artist
+      - network engineer
+      - systems administrator
+      - database administrator
+      - cybersecurity analyst
+      - IT consultant
+      - IT support specialist
+      - help desk technician
+      - hardware engineer
+      - firmware engineer
+      - automation engineer
+      - process engineer
+      - civil engineer
+      - electrical engineer
+      - mechanical engineer
+      - aerospace engineer
+      - chemical engineer
+      - biomedical engineer
+      - environmental engineer
+      - manufacturing engineer
+      - industrial engineer
+      - logistics coordinator
+      - supply chain manager
+      - operations manager
+      - finance manager
+      - accounting manager
+      - financial analyst
+      - investment analyst
+      - risk analyst
+      - tax consultant
+      - auditor
+      - banking consultant
+      - investment banker
+      - venture capitalist
+      - private equity analyst
+      - hedge fund manager
+      - human resources manager
+      - recruitment specialist
+      - talent acquisition manager
+      - learning and development specialist
+      - organizational development consultant
+      - executive coach
+      - hotel manager
+      - event planner
+      - facility manager
+      - project coordinator
+      - operations coordinator
+      - customer service representative
+      - call center agent
+      - market researcher
+      - business intelligence analyst
+      - cloud architect
+      - network security analyst
+      - hardware designer
+      - semiconductor engineer
+      - automotive engineer
+      - pharmaceutical researcher
+      - clinical trial coordinator
+      - healthcare IT specialist
+      - health informatics analyst
+      - medical imaging technologist
+      - nurse practitioner
+      - veterinarian
+      - pet groomer
+      - environmental consultant
+      - chemical researcher
+      - research assistant
+      - researcher
+      - construction worker
+      - real estate agent
+      - agricultural engineer
+      - marine biologist
+      - geologist
+      - archaeologist
+      - astrophysicist
+      - paleontologist
+      - museum curator
+      - social media manager
+      - content creator
+      - influencer marketing specialist
+      - e-learning developer
+      - virtual reality developer
+      - blockchain developer
+      - cryptocurrency analyst
+      - crowdfunding specialist
+      - esports manager
+      - sustainability consultant
+      - renewable energy analyst
+      - waste management specialist
+      - recycling coordinator
+      - cfo
+      - ceo
+      - cto
+      - cio
+      - coo

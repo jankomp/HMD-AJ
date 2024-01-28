@@ -3,12 +3,6 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- interviewer_name
-- interviewer_email:
-    ignore_entities: ORG
-- company_name
-- company_industry:
-    ignore_entities: ORG
 - thanks
 - welcome_greet
 - goodbye_greet
@@ -23,6 +17,18 @@ intents:
 - website_portfolio_qst
 - possible_questions_qst
 - out_of_scope
+- interviewer_name
+- company_name
+- job_role:
+    ignore_entities:
+      -ORG
+- interviewer_email:
+    ignore_entities:
+      - ORG
+- company_industry:
+    ignore_entities:
+      - ORG
+      - job_role
 entities:
 - interviewer_name
 - PERSON
@@ -32,6 +38,7 @@ entities:
 - ORG:
     influence_conversation: false
 - company_industry
+- job_role
 - jan_email
 - skill_programming_languages
 - skill_programming_language
@@ -72,6 +79,14 @@ slots:
       condition:
       - active_loop: interviewer_company_form
       - requested_slot: company_industry
+  job_role:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: job_role
+      condition:
+      - active_loop: interviewer_company_form
+      - requested_slot: job_role
   jan_email:
     type: text
     mappings:
@@ -119,6 +134,8 @@ responses:
   - text: What company are you from?
   utter_ask_company_industry:
   - text: What area does your company operate in?
+  utter_ask_job_role:
+  - text: Please tell me a role that is open at your company.
   #utter_intro:
   #- text: Jan is a software developer from Italy, currently completing his Master's with the EIT Digital Programme in Human-Computer Interaction and Design in the Universities Aalto in Finland and Università di Trento in Italy.
   #utter_company_confirmation:
@@ -134,7 +151,7 @@ responses:
   utter_jan_education:
   - text: Jan has a Bachelor's Degree in Mediainformatics & Visual Computer Science from the Technical University of Vienna.
   utter_jan_experience:
-  - text: Jan has worked as a Software Developer at EOS Solutions in Bolzano and as a Research Assistant at Aalto University. To read more about his professional experience, see this section on the website$HIGHLIGHT_PREVIOUS_EXPERIENCE$.
+  - text: Jan has worked as a Software Developer at EOS Solutions in Bolzano and as a Research Assistant at Aalto University. You can read more about his professional experience on this website$HIGHLIGHT_PREVIOUS_EXPERIENCE$.
   utter_jan_goals:
   - text: Jan is looking for a job as a Software Developer in the field of Human-Computer Interaction and Design in Finland.
   utter_website_cv:
@@ -153,8 +170,8 @@ responses:
   - text: Have a nice day! I hope I was able to help you.
   utter_offer_help:
   - text: Is there anything else I can help you with?
- # utter_default:
- # - text: Sorry, I didn't understand that. Can you please retype it?
+  utter_default:
+  - text: Sorry, I didn't understand that. Can you please retype it?
 actions:
 - action_set_jan_email
 - action_get_skill_programming_language
@@ -194,3 +211,4 @@ forms:
     - interviewer_email
     - company_name
     - company_industry
+    - job_role

@@ -5,20 +5,13 @@ nlu:
     - \b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b
 - intent: out_of_scope
   examples: |
-    - I am asking you an out of scope question
-    - 4 + 2 = ?
-    - After registration I see that I have an available balance of 0.00000000. What does this balance represent?
-    - Are you ready?
-    - But you're an english site :(
-    - Can I ask you questions first?
-    - Can I die
-    - Can I get a hamburger?
-    - Can YouTube talk?
-    - Can you call me back ?
-    - Can you give me your datacenter's password
-    - Can you make sandwiches?
-    - Can you please send me an uber
-    - Do I have to accept?
+    - Who is Professor Oulasvirta?
+    - What is the weather like in Helsinki?
+    - Can you tell me a joke?
+    - What is the meaning of life?
+    - is he cool?
+    - are you gay?
+    - do you like me?
 - intent: welcome_greet
   examples: |
     - hi
@@ -111,6 +104,16 @@ nlu:
     - Our industry is [agriculture](company_industry)
     - The company operates in the [energy sector](company_industry)
     - We are in the [transportation industry](company_industry)
+- intent: job_role
+  examples: |
+    - [Software Engineer](job_role)
+    - we are looking for a [Software Developer](job_role)
+    - we want to hire an [IT Consultant](job_role)
+    - we are searching for a [Software Tester](job_role)
+    - [team lead](job_role)
+    - He could become our next [Project Manager](job_role)
+    - we have several open roles. One is for [data analyst](job_role)
+    - a junior [developer](job_role) to join our team
 - intent: possible_questions_qst
   examples: |
     - what was it that I could ask you about?

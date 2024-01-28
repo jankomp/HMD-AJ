@@ -130,6 +130,14 @@ stories:
     - company_industry: Transportation
   - action: interviewer_company_form
   - slot_was_set:
+    - requested_slot: job_role
+  - intent: job_role
+    entities:
+    - company_industry: team lead
+  - slot_was_set:
+    - company_industry: team lead
+  - action: interviewer_company_form
+  - slot_was_set:
     - requested_slot: null
   - active_loop: null
   - action: action_complete_interview
@@ -140,3 +148,63 @@ stories:
   - action: utter_possible_questions
   - intent: jan_goals_qst
   - action: utter_jan_goals
+
+- story: interactive_story_2
+  steps:
+  - intent: welcome_greet
+  - action: interviewer_company_form
+  - active_loop: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: interviewer_name
+  - intent: company_name
+    entities:
+    - PERSON: Frederick
+  - slot_was_set:
+    - interviewer_name: Frederick
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: interviewer_email
+  - intent: interviewer_email
+    entities:
+    - EMAIL: frederick.wollaz@mail.de
+  - slot_was_set:
+    - interviewer_email: frederick.wollaz@mail.de
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: company_name
+  - intent: company_name
+    entities:
+    - ORG: Hyundai
+  - slot_was_set:
+    - company_name: Hyundai
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: company_industry
+  - intent: company_industry
+    entities:
+    - company_industry: automotive
+  - slot_was_set:
+    - company_industry: automotive
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: job_role
+  - intent: job_role
+    entities:
+    - company_industry: intern
+  - slot_was_set:
+    - company_industry: intern
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_complete_interview
+  - action: utter_offer_help
+  - intent: jan_programming_language_qst
+    entities:
+    - skill_programming_language: Python
+  - slot_was_set:
+    - skill_programming_language: Python
+  - action: action_get_skill_programming_language
+  - slot_was_set:
+    - skill_level: a lot of experience
+  - action: utter_jan_skill_specific

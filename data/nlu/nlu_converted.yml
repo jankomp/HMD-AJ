@@ -126,6 +126,17 @@ nlu:
     - i do not want to disclose that
     - stop with the questions!
     - that's none of your business
+- intent: non_expression
+  examples: |
+    - Great
+    - good, good
+    - interesting
+    - awesome
+    - dudidudelu
+    - bapparappapa
+    - swag
+    - word
+    - well...
 - intent: possible_questions_qst
   examples: |
     - what was it that I could ask you about?

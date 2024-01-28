@@ -20,6 +20,7 @@ intents:
 - interviewer_name
 - company_name
 - stop
+- non_expression
 - job_role:
     ignore_entities:
       -ORG

@@ -17,6 +17,12 @@ rules:
     - action: interviewer_company_form
     - active_loop: interviewer_company_form
 
+- rule: activate_form 2
+  steps:
+    - intent: non_expression
+    - action: interviewer_company_form
+    - active_loop: interviewer_company_form
+
 - rule: submit_interview_form
   condition:
     - active_loop: interviewer_company_form

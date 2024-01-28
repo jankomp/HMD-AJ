@@ -72,7 +72,7 @@ class ActionGetSkillProgrammingLanguage(Action):
 		if skill in programming_languages_dictionary_lower.keys():
 			skill_level = programming_languages_dictionary_lower[skill]
 		else:
-			skill_level = "no experience yet"
+			skill_level = "no experience yet. But he is a fast learner"
 		return[SlotSet("skill_level", skill_level)]
 	
 class ActionGetSkills(Action):

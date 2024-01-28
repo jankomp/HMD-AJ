@@ -115,6 +115,9 @@ nlu:
       - logistics management
       - risk management
       - quality management
+      - clothing
+      - textiles
+      - pharma
       - operations management
       - customer relationship management (CRM)
       - customer support
@@ -164,6 +167,8 @@ nlu:
       - healthcare IT
       - health insurance
       - telemedicine
+      - television
+      - print
       - pharmaceutical distribution
       - medical equipment manufacturing
       - veterinary services

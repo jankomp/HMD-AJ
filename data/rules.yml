@@ -21,9 +21,183 @@ rules:
   condition:
     - active_loop: interviewer_company_form
   steps:
-      - action: interviewer_company_form      # run the form
+      - action: interviewer_company_form
       - active_loop: null
       - slot_was_set:
         - requested_slot: null
       - action: action_complete_interview
       - action: utter_offer_help
+      
+- rule: youre_welcome
+  steps:
+  - intent: thanks
+  - action: utter_youre_welcome
+
+- rule: goodbye_greet
+  steps:
+  - intent: goodbye_greet
+  - action: utter_goodbye
+
+- rule: jan_email_qst
+  steps:
+  - intent: jan_email_qst
+  - action: action_set_jan_email
+  - action: utter_jan_email
+
+- rule: jan_skills_qst
+  steps:
+  - intent: jan_skills_qst
+  - action: action_get_skills
+  - action: utter_jan_skills_generic
+
+- rule: jan_programming_language_qst
+  steps:
+  - intent: jan_programming_language_qst
+  - action: action_get_skill_programming_language
+  - action: utter_jan_skill_specific
+
+- rule: jan_education_qst
+  steps:
+  - intent: jan_education_qst
+  - action: utter_jan_education
+
+- rule: jan_prof_experience_qst
+  steps:
+  - intent: jan_prof_experience_qst
+  - action: utter_jan_experience
+
+- rule: jan_goals_qst
+  steps:
+  - intent: jan_goals_qst
+  - action: utter_jan_goals
+
+- rule: website_cv_qst
+  steps:
+  - intent: website_cv_qst
+  - action: utter_website_cv
+
+- rule: website_rec_letters_qst
+  steps:
+  - intent: website_rec_letters_qst
+  - action: utter_website_rec_letters
+
+- rule: website_portfolio_qst
+  steps:
+  - intent: website_portfolio_qst
+  - action: utter_website_portfolio
+
+- rule: possible_questions_qst
+  steps:
+  - intent: possible_questions_qst
+  - action: utter_possible_questions
+
+- rule: Out of scope during interviewer company form
+  condition:
+    - active_loop: interviewer_company_form
+  steps:
+    - intent: out_of_scope
+    - action: action_set_jan_email
+    - action: utter_out_of_scope
+    - action: interviewer_company_form
+    - active_loop: interviewer_company_form
+
+- rule: jan_email_qst during interviewer company form
+  condition:
+    - active_loop: interviewer_company_form
+  steps:
+    - intent: jan_email_qst
+    - action: action_set_jan_email
+    - action: utter_jan_email
+    - action: interviewer_company_form
+    - active_loop: interviewer_company_form
+
+- rule: jan_skills_qst during interviewer company form
+  condition:
+    - active_loop: interviewer_company_form
+  steps:
+    - intent: jan_skills_qst
+    - action: action_get_skills
+    - action: utter_jan_skills_generic
+    - action: interviewer_company_form
+    - active_loop: interviewer_company_form
+
+- rule: jan_programming_language_qst during interviewer company form
+  condition:
+    - active_loop: interviewer_company_form
+  steps:
+    - intent: jan_programming_language_qst
+    - action: action_get_skill_programming_language
+    - action: utter_jan_skill_specific
+    - action: interviewer_company_form
+    - active_loop: interviewer_company_form
+
+- rule: jan_education_qst during interviewer company form
+  condition:
+    - active_loop: interviewer_company_form
+  steps:
+    - intent: jan_education_qst
+    - action: utter_jan_education
+    - action: interviewer_company_form
+    - active_loop: interviewer_company_form
+
+- rule: jan_prof_experience_qst during interviewer company form
+  condition:
+    - active_loop: interviewer_company_form
+  steps:
+    - intent: jan_prof_experience_qst
+    - action: utter_jan_experience
+    - action: interviewer_company_form
+    - active_loop: interviewer_company_form
+
+- rule: jan_goals_qst during interviewer company form
+  condition:
+    - active_loop: interviewer_company_form
+  steps:
+    - intent: jan_goals_qst
+    - action: utter_jan_goals
+    - action: interviewer_company_form
+    - active_loop: interviewer_company_form
+
+- rule: website_cv_qst during interviewer company form
+  condition:
+    - active_loop: interviewer_company_form
+  steps:
+    - intent: website_cv_qst
+    - action: utter_website_cv
+    - action: interviewer_company_form
+    - active_loop: interviewer_company_form
+
+- rule: website_rec_letters_qst during interviewer company form
+  condition:
+    - active_loop: interviewer_company_form
+  steps:
+    - intent: website_rec_letters_qst
+    - action: utter_website_rec_letters
+    - action: interviewer_company_form
+    - active_loop: interviewer_company_form
+
+- rule: website_portfolio_qst during interviewer company form
+  condition:
+    - active_loop: interviewer_company_form
+  steps:
+    - intent: website_portfolio_qst
+    - action: utter_website_portfolio
+    - action: interviewer_company_form
+    - active_loop: interviewer_company_form
+
+- rule: possible_questions_qst during interviewer company form
+  condition:
+    - active_loop: interviewer_company_form
+  steps:
+    - intent: possible_questions_qst
+    - action: utter_possible_questions
+    - action: interviewer_company_form
+    - active_loop: interviewer_company_form
+
+- rule: return to form if action utter_default
+  condition:
+    - active_loop: interviewer_company_form
+  steps:
+    - action: utter_default
+    - action: interviewer_company_form
+    - active_loop: interviewer_company_form

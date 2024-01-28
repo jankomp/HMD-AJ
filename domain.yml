@@ -113,18 +113,6 @@ slots:
     mappings:
     - type: custom
       influence_conversation: true
-  #requested_slot:
-  #  type: categorical
-  #  values:
-  #  - jan_email
-  #  - jan_skills
-  #  - jan_specific_skill
-  #  - jan_education
-  #  - jan_experience
-  #  - jan_goals
-  #  mappings:
-  #  - type: custom
-  #  influence_conversation: true
 responses:
   utter_ask_interviewer_name:
   - text: What is your name?
@@ -145,7 +133,7 @@ responses:
   utter_jan_email:
   - text: Jan's email is {jan_email}
   utter_jan_skills_generic:
-  - text: Jan has experience with {skill_programming_languages}. Would you like to know his level in one of those languages?
+  - text: Jan has experience with {skill_programming_languages}. I can tell you his specific skill level in any one of those languages if you ask me about it.
   utter_jan_skill_specific:
   - text: With {skill_programming_language} Jan has {skill_level}.
   utter_jan_education:
@@ -199,13 +187,9 @@ actions:
 forms:
   interviewer_company_form:
     ignored_intents:
-    - out_of_scope
-    - jan_email_qst
-    - jan_skills_qst
-    - jan_programming_language_qst
-    - jan_education_qst
-    - jan_prof_experience_qst
-    - jan_goals_qst
+    - welcome_greet
+    - thanks
+    - goodbye_greet
     required_slots:
     - interviewer_name
     - interviewer_email

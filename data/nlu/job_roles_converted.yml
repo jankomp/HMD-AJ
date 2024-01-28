@@ -14,6 +14,7 @@ nlu:
       - secretary
       - teacher
       - professor
+      - driver
       - tutor
       - lecturer
       - administrator

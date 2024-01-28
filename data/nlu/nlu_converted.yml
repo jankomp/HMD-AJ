@@ -215,6 +215,31 @@ nlu:
     - What is Jan aiming for in his career?
     - What does Jan want to achieve professionally?
     - Can you share details about Jan's career aspirations?
+- intent: website_cv_qst
+  examples: |
+    - Does Jan have a CV?
+    - Can you tell me about his CV?
+    - Can you tell me about Jan's CV?
+    - Can you tell me about Jan's resume?
+    - What is Jan's CV?
+    - What is Jan's resume?
+    - CV?
+- intent: website_rec_letters_qst
+  examples: |
+    - Has Jan any references?
+    - Can you tell me about Jan's references?
+    - Can you tell me about Jan's recommendation letters?
+    - What do other people say about Jan?
+    - What are Jan's recommendations?
+    - recommendation letters?
+- intent: website_portfolio_qst
+  examples: |
+    - Does Jan have a portfolio?
+    - Can you tell me about his portfolio?
+    - Can you tell me about Jan's projects?
+    - What projects has Jan worked on?
+    - What are some of his projects?
+    - portfolio?
 - synonym: Jan
   examples: |
     - Jan

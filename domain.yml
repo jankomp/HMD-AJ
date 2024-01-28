@@ -18,6 +18,9 @@ intents:
 - jan_education_qst
 - jan_prof_experience_qst
 - jan_goals_qst
+- website_cv_qst
+- website_rec_letters_qst
+- website_portfolio_qst
 - possible_questions_qst
 - out_of_scope
 entities:
@@ -131,9 +134,15 @@ responses:
   utter_jan_education:
   - text: Jan has a Bachelor's Degree in Mediainformatics & Visual Computer Science from the Technical University of Vienna.
   utter_jan_experience:
-  - text: Jan has worked as a Software Developer at EOS Solutions in Bolzano and as a Research Assistant at Aalto University.
+  - text: Jan has worked as a Software Developer at EOS Solutions in Bolzano and as a Research Assistant at Aalto University. To read more about his professional experience, see this section on the website$HIGHLIGHT_PREVIOUS_EXPERIENCE$.
   utter_jan_goals:
   - text: Jan is looking for a job as a Software Developer in the field of Human-Computer Interaction and Design in Finland.
+  utter_website_cv:
+  - text: Jan's CV is available on this website$HIGHLIGHT_CV$.
+  utter_website_rec_letters:
+  - text: Jan has received recommendation letters from his previous employers and professors. You can find them on this website$HIGHLIGHT_RECOMMENDATION_LETTERS$.
+  utter_website_portfolio:
+  - text: Jan has a portfolio with some of his projects on this website$HIGHLIGHT_PAST_PROJECTS$.
   utter_possible_questions:
   - text: I can tell you about Jan's skills, education, professional experience and goals. What would you like to know?
   utter_out_of_scope:

@@ -72,6 +72,21 @@ stories:
   - intent: jan_goals_qst
   - action: utter_jan_goals
 
+- story: website_cv_qst
+  steps:
+  - intent: website_cv_qst
+  - action: utter_website_cv
+
+- story: website_rec_letters_qst
+  steps:
+  - intent: website_rec_letters_qst
+  - action: utter_website_rec_letters
+
+- story: website_portfolio_qst
+  steps:
+  - intent: website_portfolio_qst
+  - action: utter_website_portfolio
+
 - story: possible_questions_qst
   steps:
   - intent: possible_questions_qst

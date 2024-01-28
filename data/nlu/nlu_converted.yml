@@ -114,6 +114,18 @@ nlu:
     - He could become our next [Project Manager](job_role)
     - we have several open roles. One is for [data analyst](job_role)
     - a junior [developer](job_role) to join our team
+- intent: stop
+  examples: |
+    - stop
+    - i don't want to tell you
+    - no
+    - fuck off
+    - leave me alone
+    - that's private
+    - i can't say
+    - i do not want to disclose that
+    - stop with the questions!
+    - that's none of your business
 - intent: possible_questions_qst
   examples: |
     - what was it that I could ask you about?

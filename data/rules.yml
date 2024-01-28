@@ -27,7 +27,18 @@ rules:
         - requested_slot: null
       - action: action_complete_interview
       - action: utter_offer_help
-      
+
+- rule: deactivate the interviewer/company form
+  condition:
+    - active_loop: interviewer_company_form
+  steps:
+    - intent: stop
+    - action: action_deactivate_loop
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    - action: utter_offer_help
+
 - rule: youre_welcome
   steps:
   - intent: thanks

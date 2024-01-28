@@ -19,6 +19,7 @@ intents:
 - out_of_scope
 - interviewer_name
 - company_name
+- stop
 - job_role:
     ignore_entities:
       -ORG

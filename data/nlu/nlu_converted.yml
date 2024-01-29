@@ -203,6 +203,7 @@ nlu:
     - how about [C#](skill_programming_language)?
     - Has Jan experience with [C](skill_programming_language)?
     - does Jan know [python](skill_programming_language)?
+    - how well does he know [c](skill_programming_language)?
 - intent: jan_education_qst
   examples: |
     - Can you provide information on Jan's education?
@@ -229,6 +230,7 @@ nlu:
     - Where has Jan worked before?
     - What jobs has Jan had?
     - Can you share details about Jan's employment history?
+    - what has Jan worked as before?
 - intent: jan_goals_qst
   examples: |
     - What are Jan's future plans?
@@ -258,6 +260,7 @@ nlu:
     - What do other people say about Jan?
     - What are Jan's recommendations?
     - recommendation letters?
+    - references?
 - intent: website_portfolio_qst
   examples: |
     - Does Jan have a portfolio?
@@ -266,6 +269,23 @@ nlu:
     - What projects has Jan worked on?
     - What are some of his projects?
     - portfolio?
+    - is there a collection of his projects on this website?
+- intent: more_details
+  examples: |
+    - can you tell me more?
+    - can you give me more details?
+    - what else?
+    - and?
+    - is there something else?
+    - what else can you tell me?
+    - i'd like to know more about this
+    - tell me more
+    - explain
+    - can you tell me more details?
+    - i want to know more about that
+    - can you provide more details about that?
+    - can you expand on that?
+    - expand
 - synonym: Jan
   examples: |
     - Jan

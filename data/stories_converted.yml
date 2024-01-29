@@ -19,7 +19,146 @@ stories:
 #  - action: jan_form
 #  - active_loop: jan_form
 
-- story: interactive_story_1
+- story: more details for skills
+  steps:
+  - action: utter_jan_skills_generic
+  - intent: more_details
+  - action: utter_more_details_skills
+
+- story: more details for education
+  steps:
+  - action: utter_jan_education
+  - intent: more_details
+  - action: utter_more_details_education
+
+- story: more details for experience
+  steps:
+  - action: utter_jan_experience
+  - intent: more_details
+  - action: utter_more_details_experience
+
+- story: more details for goals
+  steps:
+  - action: utter_jan_goals
+  - intent: more_details
+  - action: utter_more_details_goals
+
+- story: more details for skills full story
+  steps:
+  - intent: jan_skills_qst
+  - action: action_get_skills
+  - slot_was_set:
+    - skill_programming_languages: python, java, c++, c, c#, javascript, typescript, AL, C/AL, SQL, HTML, CSS
+  - action: utter_jan_skills_generic
+  - intent: more_details
+  - action: utter_more_details_skills
+
+- story: more details for education full story
+  steps:
+  - intent: jan_education_qst
+  - action: utter_jan_education
+  - intent: more_details
+  - action: utter_more_details_education
+
+- story: more details for experience full story
+  steps:
+  - intent: jan_prof_experience_qst
+  - action: utter_jan_experience
+  - intent: more_details
+  - action: utter_more_details_experience
+
+- story: more details for goals full story
+  steps:
+  - intent: jan_goals_qst
+  - action: utter_jan_goals
+  - intent: more_details
+  - action: utter_more_details_goals
+
+- story: curious user demanding more details
+  steps:
+  - intent: jan_skills_qst
+  - action: action_get_skills
+  - slot_was_set:
+    - skill_programming_languages: python, java, c++, c, c#, javascript, typescript, AL, C/AL, SQL, HTML, CSS
+  - action: utter_jan_skills_generic
+  - intent: more_details
+  - action: utter_more_details_skills
+  - intent: jan_programming_language_qst
+    entities:
+    - skill_programming_language: C
+  - slot_was_set:
+    - skill_programming_language: C
+  - action: action_get_skill_programming_language
+  - slot_was_set:
+    - skill_level: basic ecperience
+  - action: utter_jan_skill_specific
+  - intent: jan_prof_experience_qst
+  - action: utter_jan_experience
+  - intent: more_details
+  - action: utter_more_details_experience
+  - intent: jan_goals_qst
+  - action: utter_jan_goals
+  - intent: more_details
+  - action: utter_more_details_goals
+  - intent: jan_education_qst
+  - action: utter_jan_education
+  - intent: more_details
+  - action: utter_more_details_education
+  - intent: thanks
+  - action: utter_youre_welcome
+
+- story: second curious user
+  steps:
+  - intent: jan_prof_experience_qst
+  - action: utter_jan_experience
+  - intent: more_details
+  - action: utter_more_details_experience
+  - intent: jan_education_qst
+  - action: utter_jan_education
+  - intent: more_details
+  - action: utter_more_details_education
+  - intent: jan_goals_qst
+  - action: utter_jan_goals
+  - intent: more_details
+  - action: utter_more_details_goals
+
+- story: third curious user demanding more details
+  steps:
+  - intent: jan_education_qst
+  - action: utter_jan_education
+  - intent: more_details
+  - action: utter_more_details_education
+  - intent: non_expression
+  - action: interviewer_company_form
+  - active_loop: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: interviewer_name
+  - intent: interviewer_name
+    entities:
+    - PERSON: Frank
+  - slot_was_set:
+    - interviewer_name: Frank
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: interviewer_email
+  - intent: interviewer_email
+    entities:
+    - EMAIL: frank.jameson@rolmail.nl
+  - slot_was_set:
+    - interviewer_email: frank.jameson@rolmail.nl
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: company_name
+  - intent: jan_programming_language_qst
+    entities:
+    - skill_programming_language: Rust
+  - slot_was_set:
+    - skill_programming_language: Rust
+  - action: action_get_skill_programming_language
+  - action: utter_jan_skill_specific
+  - action: interviewer_company_form
+
+- story: Franz From Fercam Filling Form
   steps:
   - intent: welcome_greet
   - action: interviewer_company_form
@@ -76,7 +215,7 @@ stories:
   - intent: jan_goals_qst
   - action: utter_jan_goals
 
-- story: interactive_story_2
+- story: Frederick filling form
   steps:
   - intent: welcome_greet
   - action: interviewer_company_form

@@ -17,7 +17,7 @@ all_conversations = conversations.find()
 with open('conversations.csv', 'w', newline='') as file:
     writer = csv.writer(file)
     # Write the header
-    writer.writerow(["Conversation ID", "Event", "Timestamp", "Text", "Metadata", "Latest Event Time"])
+    writer.writerow(["Conversation ID", "Event", "Policy", "Timestamp", "Intent", "Text", "Metadata", "Latest Event Time", "Name", "Value"])
 
     # Iterate over the conversations
     for conversation in all_conversations:
@@ -27,8 +27,12 @@ with open('conversations.csv', 'w', newline='') as file:
             writer.writerow([
                 conversation['_id'],
                 event['event'],
+                event.get('policy', ''),  # Some events might not have a 'policy' field
                 event['timestamp'],
+                event.get('parse_data', {}).get('intent', {}).get('name', ''),  # Some events might not have a 'parse_data' field
                 event.get('text', ''),  # Some events might not have a 'text' field
                 event.get('metadata', ''),  # Some events might not have a 'metadata' field
-                conversation['latest_event_time']
+                conversation['latest_event_time'],
+                event.get('name', ''),  # Some events might not have a 'name' field
+                event.get('value', ''),  # Some events might not have a 'value' field
             ])

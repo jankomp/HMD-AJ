@@ -12,6 +12,16 @@ nlu:
     - is he cool?
     - are you gay?
     - do you like me?
+    - for how long?
+    - when is he available?
+    - how old are you?
+    - how is your italian?
+    - are you open for work?
+    - do you have a job at the moment?
+    - would you like to work with us?
+    - In which field exactly?
+    - what is your strongest point?
+    - what is your dream job?
 - intent: welcome_greet
   examples: |
     - hi
@@ -128,6 +138,8 @@ nlu:
     - that's none of your business
 - intent: non_expression
   examples: |
+    - ok
+    - perfect
     - Great
     - good, good
     - interesting
@@ -206,6 +218,7 @@ nlu:
     - how well does he know [c](skill_programming_language)?
 - intent: jan_education_qst
   examples: |
+    - What is Jan's major?
     - Can you provide information on Jan's education?
     - I'm interested in Jan's educational qualifications.
     - What qualifications does Jan hold?
@@ -233,6 +246,7 @@ nlu:
     - what has Jan worked as before?
 - intent: jan_goals_qst
   examples: |
+    - What is he looking for?
     - What are Jan's future plans?
     - Can you tell me about Jan's ambitions?
     - What is Jan's career plan?

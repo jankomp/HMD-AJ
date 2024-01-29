@@ -19,6 +19,14 @@ stories:
 #  - action: jan_form
 #  - active_loop: jan_form
 
+- story: many fallbacks
+  steps:
+  - intent: nlu_fallback
+  - action: action_default_fallback
+  - action: utter_default
+  - intent: nlu_fallback
+  - intent: utter_out_of_scope
+
 - story: more details for skills
   steps:
   - action: utter_jan_skills_generic

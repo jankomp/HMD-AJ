@@ -72,6 +72,13 @@ slots:
     mappings:
     - type: from_entity
       entity: PERSON
+      not_intent:
+        - jan_email_qst
+        - jan_skills_qst
+        - jan_programming_language_qst
+        - jan_education_qst
+        - jan_prof_experience_qst
+        - jan_goals_qst
       condition:
       - active_loop: interviewer_company_form
       - requested_slot: interviewer_name
@@ -88,6 +95,8 @@ slots:
     mappings:
     - type: from_entity
       entity: ORG
+      not_intent:
+        - jan_programming_language_qst
       condition:
       - active_loop: interviewer_company_form
       - requested_slot: company_name
@@ -96,6 +105,10 @@ slots:
     mappings:
     - type: from_entity
       entity: company_industry
+      not_intent:
+        - jan_education_qst
+        - jan_prof_experience_qst
+        - jan_goals_qst
       condition:
       - active_loop: interviewer_company_form
       - requested_slot: company_industry

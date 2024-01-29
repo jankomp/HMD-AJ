@@ -274,3 +274,54 @@ stories:
   - slot_was_set:
     - skill_level: a lot of experience
   - action: utter_jan_skill_specific
+
+- story: goodbye test
+  steps:
+  - intent: welcome_greet
+  - action: interviewer_company_form
+  - active_loop: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: interviewer_name
+  - intent: interviewer_name
+    entities:
+    - PERSON: Mike
+  - slot_was_set:
+    - interviewer_name: Mike
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: company_name
+  - intent: company_name
+    entities:
+    - ORG: Google
+  - slot_was_set:
+    - company_name: Google
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: job_role
+  - intent: job_role
+    entities:
+    - company_industry: software
+    - job_role: developer
+  - slot_was_set:
+    - company_industry: software
+  - slot_was_set:
+    - job_role: developer
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: interviewer_email
+  - intent: stop
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_offer_help
+  - intent: goodbye_greet
+  - action: action_examine_slots
+  - slot_was_set:
+    - interviewer_name: ', Mike'
+  - slot_was_set:
+    - job_role: developer
+  - slot_was_set:
+    - company_name: Google
+  - action: utter_goodbye
+  - action: action_reset_slots

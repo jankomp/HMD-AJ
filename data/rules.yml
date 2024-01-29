@@ -53,7 +53,9 @@ rules:
 - rule: goodbye_greet
   steps:
   - intent: goodbye_greet
+  - action: action_examine_slots
   - action: utter_goodbye
+  - action: action_reset_slots
 
 - rule: jan_email_qst
   steps:

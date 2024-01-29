@@ -113,3 +113,56 @@ class ActionCompleteInterview(Action):
             writer.writerow([date, time, name, email, company, industry, role])
 
         return []
+
+class ActionExamineSlots(Action):
+	def name(self):
+		return "action_examine_slots"
+
+	async def run(self, dispatcher, tracker, domain):
+		# Get the slot values
+		interviewer_name = tracker.get_slot('interviewer_name')
+		job_role = tracker.get_slot('job_role')
+		company_name = tracker.get_slot('company_name')
+
+		# Modify the slot values if necessary
+		if not interviewer_name:
+			interviewer_name = ''
+		else:
+			if not interviewer_name.startswith(', '):
+				interviewer_name = ', ' + interviewer_name
+
+		if not job_role:
+			job_role = 'the role'
+
+		if not company_name:
+			company_name = 'your company'
+
+		# Set the modified slot values
+		return [SlotSet('interviewer_name', interviewer_name),
+				SlotSet('job_role', job_role),
+				SlotSet('company_name', company_name)]
+	
+class ActionResetSlots(Action):
+	def name(self):
+		return "action_reset_slots"
+
+	async def run(self, dispatcher, tracker, domain):
+		# Get the current value of the 'interviewer_name' slot
+		interviewer_name = tracker.get_slot('interviewer_name')
+		job_role = tracker.get_slot('job_role')
+		company_name = tracker.get_slot('company_name')
+
+		# Remove the ', ' prefix from 'interviewer_name' if it exists
+		if interviewer_name and interviewer_name.startswith(', '):
+			interviewer_name = interviewer_name[2:]
+
+		if job_role == 'the role':
+			job_role = None
+
+		if company_name == 'your company':
+			company_name = None
+
+		# Set the slots back to their original values
+		return [SlotSet('interviewer_name', interviewer_name or None),
+				SlotSet('job_role', job_role),
+				SlotSet('company_name', company_name)]

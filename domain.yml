@@ -188,7 +188,7 @@ responses:
   utter_youre_welcome:
   - text: You're welcome.
   utter_goodbye:
-  - text: Have a nice day! I hope I was able to help you.
+  - text: Goodbye{interviewer_name}! I invite you to reach out to Jan personally to see if he is a fit for {job_role} at {company_name}.
   utter_offer_help:
   - text: Is there anything else I can help you with?
   utter_default:
@@ -208,6 +208,8 @@ actions:
 - action_save_interviewer_name
 - action_save_interviewer_email
 - action_complete_interview
+- action_examine_slots
+- action_reset_slots
 - action_default_fallback
 - utter_out_of_scope
 - utter_ask_interviewer_name
@@ -238,7 +240,7 @@ forms:
     - goodbye_greet
     required_slots:
     - interviewer_name
-    - interviewer_email
     - company_name
-    - company_industry
     - job_role
+    - company_industry
+    - interviewer_email

@@ -38,6 +38,7 @@ intents:
 - stop
 - non_expression
 - more_details
+- confusion
 - job_role:
     use_entities:
       - job_role
@@ -199,6 +200,8 @@ responses:
   - text: At his Bachelor's Jan learned the basics of programming, software engineering, databases, computer graphics, computer vision, machine learning, human-computer interaction, web development, and project management. Now he is furthering his skills in those and other areas in his Master's.
   utter_more_details_goals:
   - text: For the long term, he would like to improve the lives of people through technology.
+  utter_explanation:
+  - text: I am actually not Jan. He is my creator. I am a virtual agent with a fixed set of answers to help you navigate this website and to get to know him.
 actions:
 - action_set_jan_email
 - action_get_skill_programming_language

@@ -149,6 +149,15 @@ nlu:
     - swag
     - word
     - well...
+- intent: confusion
+  examples: |
+    - are you not Jan?
+    - who are you?
+    - who am I talking to?
+    - why are you talking about him in 3rd person?
+    - why are you talking about yourself in 3rd person?
+    - why are you so strange?
+    - you are weird
 - intent: possible_questions_qst
   examples: |
     - what was it that I could ask you about?

@@ -6,6 +6,11 @@ rules:
   - action: action_set_jan_email
   - action: utter_out_of_scope
 
+- rule: help confused user
+  steps:
+  - intent: confusion
+  - action: utter_explanation
+
 - rule: utter_possible_questions
   steps:
     - intent: possible_questions_qst
@@ -108,6 +113,15 @@ rules:
   steps:
   - intent: possible_questions_qst
   - action: utter_possible_questions
+
+- rule: Confusion during interviewer company form
+  condition:
+    - active_loop: interviewer_company_form
+  steps:
+    - intent: confusion
+    - action: utter_explanation
+    - action: interviewer_company_form
+    - active_loop: interviewer_company_form
 
 - rule: Out of scope during interviewer company form
   condition:

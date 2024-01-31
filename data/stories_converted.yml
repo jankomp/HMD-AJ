@@ -97,9 +97,6 @@ stories:
   - slot_was_set:
     - skill_programming_language: C
   - action: action_get_skill_programming_language
-  - slot_was_set:
-    - skill_level: basic ecperience
-  - action: utter_jan_skill_specific
   - intent: jan_prof_experience_qst
   - action: utter_jan_experience
   - intent: more_details
@@ -163,7 +160,6 @@ stories:
   - slot_was_set:
     - skill_programming_language: Rust
   - action: action_get_skill_programming_language
-  - action: utter_jan_skill_specific
   - action: interviewer_company_form
 
 - story: Franz From Fercam Filling Form
@@ -222,6 +218,8 @@ stories:
   - action: utter_possible_questions
   - intent: jan_goals_qst
   - action: utter_jan_goals
+  - intent: more_details
+  - action: utter_more_details_goals
 
 - story: Frederick filling form
   steps:
@@ -279,10 +277,6 @@ stories:
   - slot_was_set:
     - skill_programming_language: Python
   - action: action_get_skill_programming_language
-  - slot_was_set:
-    - skill_level: a lot of experience
-  - action: utter_jan_skill_specific
-
 - story: goodbye test
   steps:
   - intent: welcome_greet

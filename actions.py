@@ -21,6 +21,8 @@ import re
 import csv
 import datetime
 
+jan_email = 'jankompatscher@gmail.com'
+
 class ActionSetJanEmail(Action):
 	def name(self) -> Text:
 		return "action_set_jan_email"
@@ -28,7 +30,6 @@ class ActionSetJanEmail(Action):
 	def run(self, dispatcher: CollectingDispatcher,
 			tracker: Tracker,
 			domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-		jan_email = 'jankompatscher@gmail.com'
 
 		return [SlotSet("jan_email", jan_email)]
 	
@@ -67,13 +68,18 @@ class ActionGetSkillProgrammingLanguage(Action):
 		skill = tracker.get_slot("skill_programming_language")
 		SlotSet("skill_programming_language", skill)
 
-		skill = skill.lower()
-		programming_languages_dictionary_lower = {k.lower(): v for k, v in programming_languages_dictionary.items()}
-		if skill in programming_languages_dictionary_lower.keys():
-			skill_level = programming_languages_dictionary_lower[skill]
+		if skill is not None:
+			skill = skill.lower()
+			programming_languages_dictionary_lower = {k.lower(): v for k, v in programming_languages_dictionary.items()}
+			if skill in programming_languages_dictionary_lower.keys():
+				skill_level = programming_languages_dictionary_lower[skill]
+			else:
+				skill_level = "no experience yet. But he is a fast learner"
+			dispatcher.utter_message("In {}, Jan has {}.".format(skill, skill_level))
+			return [SlotSet("skill_programming_language", None)]
 		else:
-			skill_level = "no experience yet. But he is a fast learner"
-		return[SlotSet("skill_level", skill_level)]
+			dispatcher.utter_message("I am not sure what you mean. You can ask Jan himself at {}".format(jan_email))
+		
 	
 class ActionGetSkills(Action):
 	def name(self) -> Text:

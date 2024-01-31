@@ -167,10 +167,8 @@ responses:
   - text: Jan's email is {jan_email}
   utter_jan_skills_generic:
   - text: Jan has experience with {skill_programming_languages}. I can tell you his specific skill level in any one of those languages if you ask me about it.
-  utter_jan_skill_specific:
-  - text: With {skill_programming_language} Jan has {skill_level}.
   utter_jan_education:
-  - text: Jan has a Bachelor's Degree in Mediainformatics & Visual Computer Science from the Technical University of Vienna.
+  - text: Jan has a Bachelor's Degree in Mediainformatics & Visual Computing from the Technical University of Vienna.
   utter_jan_experience:
   - text: Jan has worked as a Software Developer at EOS Solutions in Bolzano and as a Research Assistant at Aalto University. You can read more about his professional experience on this website$HIGHLIGHT_PREVIOUS_EXPERIENCE$.
   utter_jan_goals:
@@ -228,7 +226,6 @@ actions:
 - utter_possible_questions
 - utter_jan_email
 - utter_jan_skills_generic
-- utter_jan_skill_specific
 - utter_jan_education
 - utter_jan_experience
 - utter_jan_goals

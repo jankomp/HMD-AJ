@@ -73,7 +73,6 @@ rules:
   steps:
   - intent: jan_programming_language_qst
   - action: action_get_skill_programming_language
-  - action: utter_jan_skill_specific
 
 - rule: jan_education_qst
   steps:
@@ -146,7 +145,6 @@ rules:
   steps:
     - intent: jan_programming_language_qst
     - action: action_get_skill_programming_language
-    - action: utter_jan_skill_specific
     - action: interviewer_company_form
     - active_loop: interviewer_company_form
 

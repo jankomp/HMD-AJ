@@ -289,6 +289,7 @@ nlu:
     - can you tell me more?
     - can you give me more details?
     - what else?
+    - anything else?
     - and?
     - is there something else?
     - what else can you tell me?
@@ -300,6 +301,8 @@ nlu:
     - can you provide more details about that?
     - can you expand on that?
     - expand
+    - can you go more into detail?
+    - can you say more about that?
 - synonym: Jan
   examples: |
     - Jan

@@ -1,0 +1,517 @@
+
+- story: interactive test story 1
+  steps:
+  - user: |
+      can Jan do a backflip?
+  - intent: out_of_scope
+  - action: action_set_jan_email
+  - slot_was_set:
+    - jan_email: jankompatscher@gmail.com
+  - action: utter_out_of_scope
+  - user: |
+      what can I ask you?
+  - intent: possible_questions_qst
+  - action: utter_possible_questions
+  - user: |
+      what are his goals?
+  - intent: jan_goals_qst
+  - action: utter_jan_goals
+  - user: |
+      can you tell me more?
+  - intent: more_details
+  - action: utter_more_details_goals
+  - user: |
+      interesting
+  - intent: non_expression
+  - action: interviewer_company_form
+  - active_loop: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: interviewer_name
+  - user: |
+      [ma](ORG) name is [Alexa](PERSON)
+  - intent: interviewer_name
+    entities:
+    - ORG: ma
+    - PERSON: Alexa
+  - slot_was_set:
+    - interviewer_name: Alexa
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: company_name
+  - intent: company_name
+    entities:
+    - ORG: Amazon
+  - slot_was_set:
+    - company_name: Amazon
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: job_role
+  - user: |
+      I don't want to tell you
+  - intent: stop
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_offer_help
+  - user: |
+      no thanks
+  - intent: thanks
+  - action: utter_youre_welcome
+  - user: |
+      goodbye
+  - intent: goodbye_greet
+  - action: action_examine_slots
+  - slot_was_set:
+    - interviewer_name: ', Alexa'
+  - slot_was_set:
+    - job_role: the role
+  - slot_was_set:
+    - company_name: Amazon
+  - action: utter_goodbye
+  - action: action_reset_slots
+  - slot_was_set:
+    - interviewer_name: Alexa
+  - slot_was_set:
+    - job_role: null
+  - slot_was_set:
+    - company_name: Amazon
+
+- story: test story for curios user
+  steps:
+  - user: |
+      what can is Jan's professional experience?
+  - intent: jan_prof_experience_qst
+  - action: utter_jan_experience
+  - user: |
+      can you tell me more?
+  - intent: more_details
+  - action: utter_more_details_experience
+  - user: |
+      what is Jan's education?
+  - intent: jan_education_qst
+  - action: utter_jan_education
+  - user: |
+      can you tell me more?
+  - intent: more_details
+  - action: utter_more_details_education
+  - user: |
+      what are his goals?
+  - intent: jan_goals_qst
+  - action: utter_jan_goals
+  - user: |
+      can you tell me more?
+  - intent: more_details
+  - action: utter_more_details_goals
+
+- story: test story for out of scope
+  steps:
+  - user: |
+      what is the circumference of the world?
+  - intent: out_of_scope
+  - action: action_set_jan_email
+  - slot_was_set:
+    - jan_email: jankompatscher@gmail.com
+  - action: utter_out_of_scope
+
+- story: test story for possible possible_questions_qst
+  steps:
+  - user: |
+      what can I ask you?
+  - intent: possible_questions_qst
+  - action: utter_possible_questions
+
+- story: test story for jan_goals_qst
+  steps:
+  - user: |
+      what are his goals?
+  - intent: jan_goals_qst
+  - action: utter_jan_goals
+  - user: |
+      can you tell me more?
+  - intent: more_details
+  - action: utter_more_details_goals
+
+- story: test story for jan_prof_experience_qst
+  steps:
+  - user: |
+      what can is Jan's professional experience?
+  - intent: jan_prof_experience_qst
+  - action: utter_jan_experience
+  - user: |
+      can you tell me more?
+  - intent: more_details
+  - action: utter_more_details_experience
+
+- story: test story for full interviewer form
+  steps:
+  - user: |
+      Hi
+  - intent: greet
+  - action: interviewer_company_form
+  - active_loop: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: interviewer_name
+  - user: |
+      My name is [Franz Baumgartner](PERSON)
+  - intent: interviewer_name
+    entities:
+    - PERSON: Franz Baumgartner
+  - slot_was_set:
+    - interviewer_name: Franz Baumgartner
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: interviewer_email
+  - user: |
+      it is [franz.baumgartner@fercam.it](EMAIL)
+  - intent: interviewer_email
+    entities:
+    - EMAIL: franz.baumgartner@fercam.it
+  - slot_was_set:
+    - interviewer_email: franz.baumgartner@fercam.it
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: company_name
+  - user: |
+      I work for [Fercam](ORG)
+  - intent: company_name
+    entities:
+    - ORG: Fercam
+  - slot_was_set:
+    - company_name: Fercam
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: company_industry
+  - user: |
+      in transportation
+  - intent: company_industry
+    entities:
+    - company_industry: transportation
+  - slot_was_set:
+    - company_industry: transportation
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: job_role
+  - user: |
+      we are looking for a [team lead](job_role)
+  - intent: job_role
+    entities:
+    - company_industry: team lead
+  - slot_was_set:
+    - company_industry: team lead
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_complete_interview
+  - action: utter_offer_help
+
+- story: test break out of story 1
+  steps:
+  - user: |
+      Hey there
+  - intent: welcome_greet
+  - action: interviewer_company_form
+  - active_loop: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: interviewer_name
+  - user: |
+      My name is [Walter](PERSON)
+  - intent: interviewer_name
+    entities:
+    - PERSON: Walter
+  - slot_was_set:
+    - interviewer_name: Walter
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: company_name
+  - user: |
+      shut up
+  - intent: stop
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_offer_help
+
+- story: test skills
+  steps:
+  - user: |
+      what programming languages does Jan know?
+  - intent: jan_programming_language_qst
+  - action: action_get_skill_programming_language
+  - user: |
+      can you tell me more?
+  - intent: more_details
+  - action: utter_more_details_skills
+
+- story: test story for jan_education_qst
+  steps:
+  - user: |
+      what is Jan's education?
+  - intent: jan_education_qst
+  - action: utter_jan_education
+  - user: |
+      can you tell me more?
+  - intent: more_details
+  - action: utter_more_details_education
+
+- story: test story for navigating website
+  steps:
+  - user: |
+      where can I find his resume?
+  - intent: website_cv_qst
+  - action: utter_website_cv
+  - user: |
+      where can I find his letters of recommendation?
+  - intent: website_rec_letters_qst
+  - action: utter_website_rec_letters
+  - user: |
+      where can I find his portfolio?
+  - intent: website_portfolio_qst
+  - action: utter_website_portfolio
+
+
+- story: test story for navigating website 2
+  steps:
+  - user: |
+      is there some place where i can see his cv?
+  - intent: website_cv_qst
+  - action: utter_website_cv
+  - user: |
+      i don't find his recommendation letters
+  - intent: website_rec_letters_qst
+  - action: utter_website_rec_letters
+  - user: |
+      is there a portfolio somewhere?
+  - intent: website_portfolio_qst
+  - action: utter_website_portfolio
+
+
+- story: test story for being polite 1
+  steps:
+  - user: |
+      thanks
+  - intent: thanks
+  - action: utter_youre_welcome
+
+- story: test story for being polite 2
+  steps:
+  - user: |
+      goodbye have a lovely evening!
+  - intent: goodbye_greet
+  - action: action_examine_slots
+  - action: utter_goodbye
+  - action: action_reset_slots
+
+- story: test story for email.
+  steps:
+  - user: |
+      what is Jan's email?
+  - intent: jan_email_qst
+  - action: action_set_jan_email
+  - action: utter_jan_email
+
+- story: test story for skills
+  steps:
+  - user: |
+      what skills does Jan have?
+  - intent: jan_skills_qst
+  - action: action_get_skills
+  - action: utter_jan_skills_generic
+
+- story: test story for utter_default
+  steps:
+  - user: |
+      as.kfjhvök.djfsfg
+  - action: action_default_fallback
+  - action: utter_default
+
+- story: test story for Jan education
+  steps:
+  - user: |
+      what is Jan's education?
+  - intent: jan_education_qst
+  - action: utter_jan_education
+  - user: |
+      can you tell me more?
+  - intent: utter_more_details_education
+
+- story: test story for Jan professional experience
+  steps:
+  - user: |
+      what is Jan's professional experience?
+  - intent: jan_prof_experience_qst
+  - action: utter_jan_experience
+  - user: |
+      something else?
+  - intent: more_details
+  - action: utter_more_details_experience
+
+- story: test story for Jan goals
+  steps:
+  - user: |
+      what are his goals?
+  - intent: jan_goals_qst
+  - action: utter_jan_goals
+
+
+- story: test story for Jan goals
+  steps:
+  - user: |
+      what are his goals?
+  - intent: jan_goals_qst
+  - action: utter_jan_goals
+  - user: |
+      can you tell me more?
+  - intent: more_details
+  - action: utter_more_details_goals
+
+- story: user story 2
+  steps:
+  - user: |
+      what is Jan's education?
+  - intent: jan_education_qst
+  - action: utter_jan_education
+  - user: |
+      can you tell me more?
+  - intent: more_details
+  - action: utter_more_details_education
+  - user: |
+      interesting
+  - intent: non_expression
+  - action: interviewer_company_form
+  - active_loop: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: interviewer_name
+  - user: |
+      i am called [Frank](PERSON)
+  - intent: interviewer_name
+    entities:
+    - PERSON: Frank
+  - slot_was_set:
+    - interviewer_name: Frank
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: interviewer_email
+  - user: |
+      frank.jameson@rolmail.nl
+  - intent: interviewer_email
+    entities:
+    - EMAIL: frank.jameson@rolmail.nl
+  - slot_was_set:
+    - interviewer_email: frank.jameson@rolmail.nl
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: company_name
+  - user: |
+      can Jan code in Rust?
+  - intent: jan_programming_language_qst
+    entities:
+    - skill_programming_language: Rust
+  - slot_was_set:
+    - skill_programming_language: Rust
+  - action: action_get_skill_programming_language
+  - action: interviewer_company_form
+
+- story: action deactive active active loop
+  steps:
+  - user: |
+      Hi
+  - intent: greet
+  - action: interviewer_company_form
+  - active_loop: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: interviewer_name
+  - user: |
+      My name is [Barack](PERSON)
+  - intent: interviewer_name
+    entities:
+    - PERSON: Barack
+  - slot_was_set:
+    - interviewer_name: Barack
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: company_name
+  - user: |
+      I work for [US Incorporated](ORG)
+  - intent: company_name
+    entities:
+    - ORG: US Incorporated
+  - slot_was_set:
+    - company_name: US Incorporated
+  - action: interviewer_company_form
+  - slot_was_set:
+    - requested_slot: company_industry
+  - user: |
+      that's classified
+  - intent: stop
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_offer_help
+
+- story: possible questions
+  steps:
+  - user: |
+      what can I ask you?
+  - intent: possible_questions_qst
+  - action: utter_possible_questions
+  - user: |
+      thanks a lot!
+  - intent: thanks
+  - action: utter_youre_welcome
+
+
+- story: out of scope 2
+  steps:
+  - user: |
+      is Jan nice?
+  - intent: out_of_scope
+  - action: action_set_jan_email
+  - slot_was_set:
+    - jan_email: jankompatscher@gmail.com
+  - action: utter_out_of_scope
+  - user: |
+      thanks
+  - intent: thanks
+  - action: utter_youre_welcome
+  - user: |
+      can he speak russian?
+  - intent: out_of_scope
+  - action: action_set_jan_email
+  - slot_was_set:
+    - jan_email: jankompatscher@gmail.com
+  - action: utter_out_of_scope
+
+- story: test story for jan_goals_qst
+  steps:
+  - user: |
+      what are his goals?
+  - intent: jan_goals_qst
+  - action: utter_jan_goals
+  - user: |
+      can you tell me more?
+  - intent: more_details
+  - action: utter_more_details_goals
+
+- story: farewell story
+  steps:
+  - user: |
+      goodbye
+  - intent: goodbye_greet
+  - action: action_examine_slots
+  - slot_was_set:
+    - interviewer_name: ', Barack'
+  - slot_was_set:
+    - company_name: US Incorporated
+  - action: utter_goodbye
+  - action: action_reset_slots
+  - slot_was_set:
+    - interviewer_name: Barack
+  - slot_was_set:
+    - company_name: null
+
+
+

@@ -28,17 +28,37 @@ intents:
 - jan_goals_qst:
     ignore_entities:
     - PERSON
-- website_cv_qst
-- website_rec_letters_qst
-- website_portfolio_qst
-- possible_questions_qst
-- out_of_scope
+- website_cv_qst:
+    ignored_intents:
+    - PERSON
+- website_rec_letters_qst:
+    ignored_intents:
+    - PERSON
+- website_portfolio_qst:
+    ignored_intents:
+    - PERSON
+- possible_questions_qst:
+    ignored_intents:
+    - PERSON
+- out_of_scope:
+    ignored_intents:
+    - PERSON
 - interviewer_name
-- company_name
-- stop
-- non_expression
-- more_details
-- confusion
+- company_name:
+    ignored_intents:
+    - PERSON
+- stop:
+    ignored_intents:
+    - PERSON
+- non_expression:
+    ignored_intents:
+    - PERSON
+- more_details:
+    ignored_intents:
+    - PERSON
+- confusion:
+    ignored_intents:
+    - PERSON
 - job_role:
     use_entities:
       - job_role
@@ -48,11 +68,13 @@ intents:
     use_entities:
      - EMAIL
     ignore_entities:
-      - ORG
+     - ORG
+     - PERSON
 - company_industry:
     ignore_entities:
-      - ORG
-      - job_role
+     - ORG
+     - job_role
+     - PERSON
 entities:
 - PERSON
 - EMAIL
@@ -80,6 +102,7 @@ slots:
         - jan_education_qst
         - jan_prof_experience_qst
         - jan_goals_qst
+        - confusion
       condition:
       - active_loop: interviewer_company_form
       - requested_slot: interviewer_name

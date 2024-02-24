@@ -1,100 +1,9 @@
 {
-  "jan_education_qst": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 12,
-    "confused_with": {}
-  },
-  "confusion": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 7,
-    "confused_with": {}
-  },
-  "out_of_scope": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 17,
-    "confused_with": {}
-  },
-  "goodbye_greet": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 6,
-    "confused_with": {}
-  },
-  "jan_email_qst": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 10,
-    "confused_with": {}
-  },
-  "website_rec_letters_qst": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 7,
-    "confused_with": {}
-  },
   "interviewer_name": {
-    "precision": 1.0,
+    "precision": 0.9375,
     "recall": 1.0,
-    "f1-score": 1.0,
+    "f1-score": 0.967741935483871,
     "support": 15,
-    "confused_with": {}
-  },
-  "non_expression": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 11,
-    "confused_with": {}
-  },
-  "website_portfolio_qst": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 7,
-    "confused_with": {}
-  },
-  "company_industry": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 12,
-    "confused_with": {}
-  },
-  "website_cv_qst": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 7,
-    "confused_with": {}
-  },
-  "possible_questions_qst": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 16,
-    "confused_with": {}
-  },
-  "jan_goals_qst": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 11,
-    "confused_with": {}
-  },
-  "jan_skills_qst": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 13,
     "confused_with": {}
   },
   "job_role": {
@@ -104,79 +13,208 @@
     "support": 8,
     "confused_with": {}
   },
-  "thanks": {
+  "confusion": {
     "precision": 1.0,
+    "recall": 0.42857142857142855,
+    "f1-score": 0.6,
+    "support": 7,
+    "confused_with": {
+      "thanks": 2,
+      "company_name": 1
+    }
+  },
+  "jan_goals_qst": {
+    "precision": 1.0,
+    "recall": 0.5454545454545454,
+    "f1-score": 0.7058823529411764,
+    "support": 11,
+    "confused_with": {
+      "website_portfolio_qst": 3,
+      "interviewer_email": 1
+    }
+  },
+  "jan_education_qst": {
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1-score": 0.6666666666666666,
+    "support": 12,
+    "confused_with": {
+      "website_portfolio_qst": 3,
+      "non_expression": 2
+    }
+  },
+  "out_of_scope": {
+    "precision": 0.9411764705882353,
+    "recall": 0.9411764705882353,
+    "f1-score": 0.9411764705882353,
+    "support": 17,
+    "confused_with": {
+      "jan_prof_experience_qst": 1
+    }
+  },
+  "thanks": {
+    "precision": 0.6666666666666666,
     "recall": 1.0,
-    "f1-score": 1.0,
+    "f1-score": 0.8,
     "support": 6,
     "confused_with": {}
   },
-  "interviewer_email": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 13,
-    "confused_with": {}
-  },
   "company_name": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
+    "precision": 0.9444444444444444,
+    "recall": 0.9444444444444444,
+    "f1-score": 0.9444444444444444,
     "support": 18,
-    "confused_with": {}
+    "confused_with": {
+      "jan_prof_experience_qst": 1
+    }
   },
-  "jan_prof_experience_qst": {
+  "jan_email_qst": {
+    "precision": 1.0,
+    "recall": 0.7,
+    "f1-score": 0.8235294117647058,
+    "support": 10,
+    "confused_with": {
+      "interviewer_email": 2,
+      "goodbye_greet": 1
+    }
+  },
+  "possible_questions_qst": {
+    "precision": 0.75,
+    "recall": 0.75,
+    "f1-score": 0.75,
+    "support": 16,
+    "confused_with": {
+      "more_details": 2,
+      "website_portfolio_qst": 1
+    }
+  },
+  "jan_programming_language_qst": {
+    "precision": 1.0,
+    "recall": 0.55,
+    "f1-score": 0.7096774193548387,
+    "support": 20,
+    "confused_with": {
+      "more_details": 7,
+      "jan_skills_qst": 1
+    }
+  },
+  "company_industry": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
     "support": 12,
     "confused_with": {}
   },
-  "stop": {
-    "precision": 1.0,
+  "jan_skills_qst": {
+    "precision": 0.9166666666666666,
+    "recall": 0.8461538461538461,
+    "f1-score": 0.8799999999999999,
+    "support": 13,
+    "confused_with": {
+      "out_of_scope": 1,
+      "more_details": 1
+    }
+  },
+  "goodbye_greet": {
+    "precision": 0.6666666666666666,
+    "recall": 0.3333333333333333,
+    "f1-score": 0.4444444444444444,
+    "support": 6,
+    "confused_with": {
+      "website_cv_qst": 2,
+      "interviewer_email": 2
+    }
+  },
+  "interviewer_email": {
+    "precision": 0.6842105263157895,
     "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 10,
+    "f1-score": 0.8125000000000001,
+    "support": 13,
     "confused_with": {}
   },
-  "jan_programming_language_qst": {
+  "website_rec_letters_qst": {
     "precision": 1.0,
+    "recall": 0.8571428571428571,
+    "f1-score": 0.923076923076923,
+    "support": 7,
+    "confused_with": {
+      "interviewer_name": 1
+    }
+  },
+  "website_cv_qst": {
+    "precision": 0.7777777777777778,
     "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 20,
+    "f1-score": 0.8750000000000001,
+    "support": 7,
     "confused_with": {}
   },
-  "more_details": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 17,
-    "confused_with": {}
+  "jan_prof_experience_qst": {
+    "precision": 0.7857142857142857,
+    "recall": 0.9166666666666666,
+    "f1-score": 0.8461538461538461,
+    "support": 12,
+    "confused_with": {
+      "website_portfolio_qst": 1
+    }
   },
   "welcome_greet": {
     "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
+    "recall": 0.75,
+    "f1-score": 0.8571428571428571,
     "support": 8,
+    "confused_with": {
+      "website_portfolio_qst": 1,
+      "non_expression": 1
+    }
+  },
+  "stop": {
+    "precision": 1.0,
+    "recall": 0.4,
+    "f1-score": 0.5714285714285715,
+    "support": 10,
+    "confused_with": {
+      "possible_questions_qst": 3,
+      "website_portfolio_qst": 1
+    }
+  },
+  "non_expression": {
+    "precision": 0.7857142857142857,
+    "recall": 1.0,
+    "f1-score": 0.88,
+    "support": 11,
     "confused_with": {}
   },
-  "accuracy": 1.0,
-  "macro avg": {
-    "precision": 1.0,
+  "more_details": {
+    "precision": 0.5666666666666667,
     "recall": 1.0,
-    "f1-score": 1.0,
+    "f1-score": 0.7234042553191489,
+    "support": 17,
+    "confused_with": {}
+  },
+  "website_portfolio_qst": {
+    "precision": 0.4117647058823529,
+    "recall": 1.0,
+    "f1-score": 0.5833333333333334,
+    "support": 7,
+    "confused_with": {}
+  },
+  "accuracy": 0.8136882129277566,
+  "macro avg": {
+    "precision": 0.8623899636132102,
+    "recall": 0.8027366779284939,
+    "f1-score": 0.7958957796583941,
     "support": 263
   },
   "weighted avg": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
+    "precision": 0.8703629764226415,
+    "recall": 0.8136882129277566,
+    "f1-score": 0.8089424446638539,
     "support": 263
   },
   "micro avg": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
+    "precision": 0.8136882129277566,
+    "recall": 0.8136882129277566,
+    "f1-score": 0.8136882129277566,
     "support": 263
   }
 }
